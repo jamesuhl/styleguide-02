@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html class="no-js" lang="en">
+<head>
+<!--#include file="../inc/meta.shtm" -->
+<title>Login &#171; FCC Auctions &#171; FCC</title>
+<!--#include virtual="../inc/links-head.shtm" -->
+</head>
+
+<body>
+<header>
+  <div class="jumpLinks"> <a href="#skiptarget1" class="sr-only focusable">Skip to main content</a> <a href="#skiptarget3" class="sr-only focusable">Skip to footer and contact information</a> </div>
+  <div class="container-fluid" id="fcc-banner"> <a href="http://www.fcc.gov"> <img title="Go to the Federal Communications Commission homepage at www.fcc.gov" alt="Go to the Federal Communications Commission homepage at www.fcc.gov" src="../img/navFCC.png"> </a>
+    <h1>Auction System</h1>
+  </div>
+</header>
+<main class="container-fluid">
+  <div class="pg-head-meta">
+    <div class="row">
+      <div class="col-sm-6">
+        <h2>Applicant/Bidder Access</h2>
+      </div>
+      <div class="col-sm-6">
+        <nav class="nav-utility" role="navigation">
+          <ul class="list-unstyled list-inline">
+            <li><a href="http://wireless.fcc.gov/auctions/default.htm?job=auctions_home" target="_blank"><span class="glyphicon glyphicon-home"><span class="sr-only">Homepage of </span></span>FCC Auctions</a> &#160;|&#160; <a href="http://ararat.fcc.gov:8022/form175/search175/index.htm" target="_blank"><span class="glyphicon glyphicon-search"><span class="sr-only">Search </span></span>Auction Applications</a> &#160;|&#160; <a href="http://wireless2.fcc.gov/UlsApp/UlsSearch/searchLicense.jsp" target="_blank"><span class="glyphicon glyphicon-search"><span class="sr-only">Search </span></span>ULS</a> </li>
+          </ul>
+        </nav>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-sm-7"><a tabindex="-1" id="skiptarget1" class="visuallyhidden"></a>
+      <section class="section">
+        <h3>Log In Information</h3>
+        <p>The <strong>Applicant</strong> Access section is password protected. 
+          Please type your FCC Registration Number (FRN) and its associated password to access the Auction Application system. 
+          An FRN/password is not required for the Public Access section of the system.</p>
+        <hr />
+     
+        <p><strong>Need an FRN?</strong><br />
+          <a href="#"> Register with the FCC</a></p>
+        <p><strong>Not sure if you have an FRN?</strong><br />
+          Search the <a href="#">FCC Registration System database</a> to determine if you have been assigned an FRN.</p>
+        <p><strong>Forgot your Password?</strong><br>
+          If you forgot your FRN Password, you can contact the FRN Help Line at 877-480-3201,&nbsp;option&nbsp;1 <span class="nowrap">(Mon-Fri 8:00 a.m. - 6:00 p.m. ET). </span>You can also <a href="mailto:CORES@fcc.gov">email the FRN Help desk</a> with your questions and concerns.</p>
+      </section>
+    </div>
+    <div class="col-sm-3">
+      <form novalidate action="/" name="frm-login" id="frm-login">
+        <h3>Log In</h3>
+        <div class="form-group">
+          <label for="frn">FRN:</label>
+          <input id="frn" class="form-control" type="text" required aria-required="true" name="frn">
+        </div>
+        <div class="form-group">
+          <label for="password">Password:</label>
+          <span aria-live="polite" class="help-block" id="capsLockMsg"></span>
+          <input id="password" class="form-control" type="password" required aria-required="true" name="pass">
+        </div>
+        <button type="submit" class="btn btn-primary">Log In</button>
+        <br />
+        <br />
+      </form>
+    </div>
+  </div>
+</main>
+<!--#include file="/auctions/inc/modals.shtm" --><!--#include file="/auctions/inc/footer.shtm" --> 
+<!--#include  file="../inc/scripts-ft2.shtm" --> 
+
+<!-- DEMO CODE ONLY DO NOT USE --> 
+<script>
+$(document).ready(function(e) {
+	$('.btn-primary').click(function(e) {
+            e.preventDefault();
+			location.href = 'dashboard.html';
+    });		
+
+});
+</script> 
+<!-- DEMO CODE ONLY DO NOT USE --> 
+
+<script>
+
+window.onload = function(){ document.getElementById('frn').focus(); }
+
+// Get password input field
+var input = document.getElementById("password");
+
+// Get the warning text
+var text = document.getElementById("capsLockMsg");
+
+// When the user presses any key on the keyboard, run the function
+input.addEventListener("keyup", function(event) {
+  // If "caps lock" is pressed, display the warning text
+  if (event.getModifierState("CapsLock")) {
+    text.innerHTML = "Caps Lock is on.";
+  } else {
+    text.innerHTML= ""
+  }
+}); 
+
+
+   // $(document).ready(function(e) {$('#frn').focus();});
+</script>
+</body>
+</html>

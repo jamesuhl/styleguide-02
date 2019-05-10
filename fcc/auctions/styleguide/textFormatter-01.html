@@ -1,0 +1,143 @@
+<!DOCTYPE HTML>
+<!--[if IE 8]><html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!-->
+<html lang="en" class="no-js">
+<!--<![endif]-->
+<head>
+<!--#include file="../inc/meta.shtm" -->
+<title>Certify &#171; FCC Auctions &#171; FCC</title>
+<!--#include file="../inc/links-head.shtm" -->
+
+</head>
+<body>
+<!-- Main header --> 
+<!--#include file="../inc/header.shtm" -->
+<main class="container"> 
+  <!--#include file="../inc/pg-head-meta.shtm" -->
+  <div class="row">
+    <div class="col-sm-8 col-md-9 page-content"><a tabindex="-1" id="skiptarget1" class="sr-only"></a>
+      <p class="help-reqd"><span class="required-char">*</span> indicates required field</p>
+      <form novalidate action="/"  method="POST" role="form" class="form-horizontal" >
+        <section class="section section-divider" role="region">
+          <h3>Text Formatting</h3>
+          <p>Functions on this page are useful for formatting text on the certification pages or for displaying entries in a table when they are composed of multiple text fields. For example, first name and last name. (creating functions for phone number + extensions and city, state might also be useful)</p>
+       
+   
+       
+       
+       
+       
+       
+       
+       
+        </section>
+        <section class="section section-divider" role="region">
+          <h3>Signature</h3>
+          <!--#include file="/auctions/inc/signature-fields.shtm" --> 
+        </section>
+        <div class="frm-ft row">
+          <div class="col-sm-12">
+            <button type="submit" class="btn btn-default">&#171; Back</button>
+          
+          <button class="btn btn-success pull-right"> Submit</button>
+          <button class="btn btn-primary pull-right">Continue &#187; </button>
+           <button class="btn btn-default  pull-right" data-placement="top" data-toggle="tooltip" data-original-title="Changes to current page will not be saved.">Summary Page </button>
+           
+            
+          </div>
+        </div>
+      </form>
+    </div>
+    <div class="sidebar sidebar-left col-sm-4 col-md-3"> 
+      <!--#include file="/auctions/inc/app-steps.shtm" --> 
+      <!--#include file="/auctions/inc/faq-placeholder.shtm" --> 
+    </div>
+  </div>
+</main>
+<!--#include file="/auctions/inc/modals.shtm" -->
+<!--#include file="/auctions/inc/footer.shtm" --> 
+<!--#include file="../inc/scripts-ft2.shtm" --> 
+<script>
+// DEMO CODE ONLY DO NOT USE
+$(document).ready(function() {
+	$.getScript('../inc/update-appSteps.js', function(){
+		updateAppSteps(5);	
+	});
+	$('.has-kicker').text('Certify & Submit');
+	
+	$('.frm-ft').find('.btn-default:first').click(function(e) {
+        e.preventDefault();
+		location.href = 'certify-default.html';
+    });
+	$('.frm-ft').find('.btn-default:eq(1)').click(function(e) {
+      e.preventDefault();
+      location.href='summary.html';
+    });
+	// Save Button
+	$('.frm-ft').find('.btn-default:eq(2)').click(function(e) {
+        e.preventDefault();
+    });	
+	$('.frm-ft').find('.btn-success').click(function(e) {
+        e.preventDefault();
+		location.href = 'confirmation.html';
+    });
+});
+// END DEMO CODE ONLY DO NOT USE
+
+$(document).ready(function() {	
+	//<![CDATA[	
+	$('#fName, #mi, #lName, #suffix').on('change keyup copy paste cut mouseup focusout', function (event) {
+  var middleInit = $('#mi').val(),
+  	  lname = $('#lName').val(),
+      suffix = $.trim($('#suffix').val());
+  	if(middleInit.length==1 && middleInit != " "){ middleInit = middleInit+"." };
+	if(suffix.length > 0 && suffix != " "){ lname = lname+"," };
+  var signVal =  ($('#fName').val() +" "+middleInit+" "+lname+" "+suffix );
+  $('#signature').val(signVal);
+});
+});
+//]]>
+	
+	/* I found the following code used in legacy production, but it relies on a trim() function that is no longer needed as of IE9+ */
+/************************************************************************
+formatName(sTitle, sFname, sMi, sLname, sSuffix)
+Returns:
+	String with complete name
+************************************************************************/
+	
+function trim(str) {
+	if (typeof str != "string") return str;
+
+    // remove leading spaces
+    while (str.substring(0,1) == ' ')
+        str = str.substring(1, str.length);
+
+    // remove trailing spaces
+    while (str.substring(str.length-1,str.length) == ' ')
+        str = str.substring(0, str.length-1);
+
+   return str;
+}
+// End trim()
+function formatName(sTitle, sFname, sMi, sLname, sSuffix)
+{
+      var sFormattedName = "";
+
+	  if (trim(sTitle).length)
+	  	  	sFormattedName = sFormattedName + trim(sTitle);
+	  if (trim(sFname).length)
+		  	sFormattedName = sFormattedName + " " + trim(sFname);
+	  if (trim(sMi).length)
+	  		sFormattedName = sFormattedName + " " + trim(sMi) + ".";
+	  if (trim(sLname).length)
+	  		sFormattedName = sFormattedName + " " + trim(sLname);
+	  if (trim(sSuffix).length)
+	  		sFormattedName = sFormattedName + ", " + trim(sSuffix);
+
+  	  return trim(sFormattedName);
+}	
+	
+	
+</script>
+</body>
+</html>

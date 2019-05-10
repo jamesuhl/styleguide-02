@@ -1,0 +1,830 @@
+<!DOCTYPE HTML>
+<!--[if IE 8]><html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!-->
+<html lang="en" class="no-js">
+<!--<![endif]-->
+<head>
+<!--#include file="../inc/meta.shtm" -->
+<title>&#171; FCC Auctions &#171; FCC</title>
+<!--#include file="../inc/links-head.shtm" -->
+</head>
+<body>
+<form id="form-mainForm" class="form-horizontal" action="/" method="POST" name="form-mainForm" novalidate>
+  <main class="container">
+    <div class="row">
+      <div class="col-sm-8 col-md-9 page-content"><a tabindex="-1" id="skiptarget1" class="sr-only"></a>
+        <section id="hasFrn" class="section section-divider">
+          <div class="row row-sectionTitle">
+            <h3  id="id477" class="col-sm-10">Validate Form - Example 1</h3>
+            <div class="col-sm-2"><a class="pull-right inline-help-link collapsed" data-target="#help-02" data-toggle="collapsible"><span class="glyphicon glyphicon-triangle-left"></span>Help</a></div>
+          </div>
+          <div id="help-02" class="alert alert-info" role="alert" style="display: none">
+            <div class="alert-hd"><span class="glyphicon glyphicon-info-sign"></span> Identify FRN(s) Help</div>
+            <div class="help-wrapper">{{Help content here}}</div>
+          </div>
+          <p>This is a basic form validation JavaScript. It checks if the required fields have been entered. I chackes if the email field is in the proper format. It any field returns invalid, an error message is displayed. </p>
+          <p>Functions in this page can check validation for email, phone, PO Box, zip codes and numeric only fields. </p>
+          <div role="alert" class="row form-group">
+            <label class="control-label col-sm-2" for="inputFrn"><span class="required-char">*</span> FRN:</label>
+            <div class="col-sm-10">
+              <input id="inputFrn" class="form-control form-control-inline" type="text" name="frn" value="" size="10" autocomplete="off" maxlength="6" required />
+            </div>
+          </div>
+          <div role="alert" class="row form-group">
+            <label class="control-label col-sm-2" for="inputFrn"><span class="required-char">*</span> Name:</label>
+            <div class="col-sm-10">
+              <input id="inputName" class="form-control form-control-inline" type="text" name="name" value="" size="50" autocomplete="off" maxlength="125" required />
+            </div>
+          </div>
+          <div role="alert" class="row form-group">
+            <label class="control-label col-sm-2" for="inputFrn"> Optional Field:</label>
+            <div class="col-sm-10">
+              <input id="inputName" class="form-control form-control-inline" type="text" name="name" value="" size="50" autocomplete="off" maxlength="125" />
+            </div>
+          </div>
+          <div role="alert" class="row form-group">
+            <label class="control-label col-sm-2" for="inputFrn"><span class="required-char">*</span> Email:</label>
+            <div class="col-sm-10">
+              <input id="inputName" class="form-control form-control-inline" type="text" name="email" value="" size="50" autocomplete="off" maxlength="125" required />
+            </div>
+          </div>
+          <div class="row form-group" data-id="row-btn-add">
+            <div class="col-sm-10 col-sm-offset-2"> <a id="btn-addBidder2" class="btn btn-primary btn-submit" role="button" href="#id477">Submit</a> </div>
+          </div>
+        </section>
+      </div>
+    </div>
+  </main>
+</form>
+
+<!--#include file="../inc/scripts-ft2.shtm" --> 
+<script>
+// DEMO CODE ONLY DO NOT USE
+
+
+
+// Email Validation
+// jsIsValidEmail() is used in legacy production, these could be combined
+function isValidEmail(email) {
+    var regex = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+    return regex.test(String(email).toLowerCase());
+}
+function jsIsValidEmail(str) {
+		if (str.toUpperCase().indexOf(";") != -1) {
+			alert("Semicolon not allowed in email address.");
+			return false;
+		}
+		return true;	
+}
+	
+	
+
+// Utility functions
+
+
+function clearErrorMsgs(){
+	$('.msg-box').each(function(){
+		$(this).removeClass('msg-box msg-error').find('.msg-error-text').remove();
+	});
+}
+	
+// isNumber and isDigit do the same thing, isDigit is used in legacy production	
+function isNumber(val) {
+	return /^\d+$/.test(val);
+}
+function isDigit(val) {
+			var re= /^\d*$/;
+			// make sure value hasn't cast to a number data type
+			val = val.toString();
+			if (!val.match(re)) {
+				alert("Only digits are allowed in Zip Code.");
+				return false;
+			}
+			return true;	
+	}
+	
+	
+function jsRemoveHyphen (zipcode) {
+	//used in legacy production
+	 	if (zipcode.charAt(5) == "-") {
+				var newZipcode = zipcode.substring(0, 5) + zipcode.substring(6, 10);
+				return newZipcode;	
+		}	
+		return zipcode;		
+}	
+	
+// Address Validation
+//P O Box not allowed
+function isNotPoBox(str) {
+	//based on jsCheckAddress() in legacy system
+     if ((str.toUpperCase().indexOf("POBOX") != -1) ||
+     	 (str.toUpperCase().indexOf("POB") != -1) ||
+         (str.toUpperCase().indexOf("P O B") != -1) ||
+         (str.toUpperCase().indexOf("PO BOX") != -1) ||
+         (str.toUpperCase().indexOf("P O BOX") != -1) ||
+         (str.toUpperCase().indexOf("P.O.BOX") != -1) ||
+         (str.toUpperCase().indexOf("P.O. BOX") != -1) ||
+         (str.toUpperCase().indexOf("P. O. BOX") != -1) ||
+         (str.toUpperCase().indexOf("POST OFFICE BOX") != -1))
+     {
+	   	alert("P.O. Box not allowed in address.");
+	    return false;
+	 }
+	 return true;
+  }	
+
+function isZipcode(str) {
+	// based on jsCheckZip() in legacy
+	// dependancy: isDigit()
+		if (str != "") 
+		{
+			var strLength = str.length;
+	
+			if ((strLength != 5) && (strLength != 9) && (strLength != 10)) {
+				alert("Zip Code must be in the format 99999, 999999999, or 99999-9999.");
+				return false;
+			}
+			
+			if (strLength == 5 || strLength == 9) {
+				if (!isDigit(str)) {
+					return false;
+				}		
+			}
+			 // strLength == 10 case.
+			else {
+	
+				if (str.charAt(5) != "-") {
+					alert("Zip Code must be in the format 99999, 999999999, or 99999-9999.");
+					return false;
+				}	
+					
+				// strip -, and check again.
+				// substring, NOT subString.  and note 5, 10 refers to the ending pos.
+				var newStr = str.substring(0, 5) + str.substring(6, 10);
+			 
+				if (!isDigit(newStr)) {
+					return false;
+				}
+			}
+			
+			return true;
+		}
+		// the requirement is: if user chooses to leave zip code blank, let is pass JS check, let it go to server side validation.	
+		else {
+			return true;
+		}
+		
+	}
+	
+	
+//**************************************************************************
+//Phone Number Validation
+//**************************************************************************
+
+// used in legacy production 	
+function jsIsDigits(xstrValue, fieldName)
+	{
+	if (xstrValue != "")
+		{	
+		if (xstrValue.match(/^\d{10}$/) == null) {
+		  alert(fieldName +" field must consist of exactly 10 digits.");
+			return false;
+		}
+		else {
+			return true;
+			}
+		}
+	else {
+	  // for now, if user chooses to leave phone number blank, we let it pass JS check.
+	  return true;
+		}	
+	}	
+
+/**************************************************************************
+************************    Phone Number Ext Validation  ******************
+***** If non-empty, it must be 1 - 4 digits.             ******************
+**************************************************************************/
+// used in legacy production 
+function jsCheckPhoneExt(xstrValue, fieldName)
+	{
+	if (xstrValue != "")
+		{	
+		var	re = /^\d{1,4}$/;
+	
+		if (xstrValue.match(re) == null) {
+		  alert(fieldName +" field must consist of all digits, and its length must be between 1 and 4 digits.");
+			return false;
+			}
+		else {
+			return true;
+			}
+		}
+	else {
+	  // for now, if user chooses to leave phone number blank, we let it pass JS check.
+	  return true;
+		}	
+	}
+
+	
+// code below was pulled from legacy system in a file named commonValidation.js
+/************************************************************************
+	Javascript validation toolkit
+
+	This file contains the following commonly-used validation functions.
+	All of the functions ignore leading and trailing whitespace, so
+	there's no need to trim the string before passing it in.
+	Most of the functions accept an optional "acceptBlank" parameter,
+	which accepts blank or all-whitespace strings as valid. The default
+	value for acceptBlank is "false".
+
+	NUMBERS
+		isWholeNum(str, [acceptBlank]):
+			Returns true if number can be resolved into integer
+
+		validCurrency(str, [acceptBlank]):
+			Checks for properly-formatted currency string
+
+		validPercent(str, [acceptBlank]):
+			Checks for properly-formatted percentage (between 0 and 100%)
+
+	ADDRESSES & CONTACT INFO
+		isPoBox(str, [acceptBlank]):
+			Checks for variations of "PO Box" and "Post Office Box"
+
+		validZipCode(str, [acceptBlank]):
+			Checks for valid zip code
+
+		validPhoneNum(str, [acceptBlank]):
+			Checks for valid phone number
+
+		validEmail(str, [acceptBlank]):
+			Checks for correctly-formatted e-mail address
+
+		validUrl(str, [acceptBlank]):
+			Checks for properly-formatted URL string
+
+	DATE & TIME
+		validDate(str, [acceptBlank]):
+			Checks for valid and properly formatted date
+
+		validTime(str, [acceptBlank]):
+			Checks for a valid and properly formatted time
+
+		dateDiff(date1, date2):
+			Returns the difference (in days) between date1 and date2
+
+	MISCELLANEOUS
+		isBlank(str):
+			Returns true if string is empty or is all whitespace
+			
+		validFRN(str):
+			Checks for properly-formatted FRN (does NOT validate FRN)
+
+************************************************************************/
+
+
+/************************************************************************
+isBlank(str)
+	str = string to validate
+Returns:
+	TRUE if str is all empty or all whitespace
+	FALSE if str contains non-whitespace characters
+************************************************************************/
+function isBlank(str) {
+	var re = /^[\s]*$/;
+	return re.test(str);
+}
+// End isBlank()
+
+
+/************************************************************************
+isPoBox(str, [acceptBlank=false])
+	str = string to validate
+	acceptBlank = valid if empty string or all-whitespace
+Returns:
+	TRUE if str contains some variation of "P.O. Box"
+	FALSE if it does not
+Notes:
+	This function is case-insensitive, and will detect the following:
+	PO
+	P.O.
+	PO Box
+	P O Box
+	P.O. Box
+	Post Office Box
+************************************************************************/
+function isPoBox(str) {
+	var acceptBlank = false;
+	if (arguments.length == 2) acceptBlank = arguments[1];
+
+	var re = /(P[\. ]*O[\. ]*)|(POST[ ]+OFFICE) BOX/i;
+
+	if (acceptBlank)
+		return (isBlank(str) || re.test(str))
+	else
+		return re.test(str);
+}
+// End isPoBox()
+
+
+
+/************************************************************************
+validZipCode(str, [acceptBlank=false])
+	str = string to validate
+	acceptBlank = valid if empty string or all-whitespace
+Returns:
+	TRUE if str is valid ZIP code
+	FALSE if it is not
+Notes:
+	Accepts 5-digit or 9-digit ZIP codes;
+	if 9-digit, will accept "-" as delimeter
+************************************************************************/
+function validZipCode(str) {
+	var acceptBlank = false;
+	if (arguments.length == 2) acceptBlank = arguments[1];
+
+	var re = /^[\s]*((\d{5}-\d{4})|\d{5}|\d{9})[\s]*$/;
+
+	if (acceptBlank)
+		return (isBlank(str) || re.test(str))
+	else
+		return re.test(str);
+}
+// End validZipCode()
+
+
+
+/************************************************************************
+validPhoneNum(str, [acceptBlank=false])
+	str = string to validate
+	acceptBlank = valid if empty string or all-whitespace
+Returns:
+	TRUE if str is a properly-formatted phone number
+	FALSE if it does not
+Notes:
+	Accepts most common formats of phone numbers, including:
+	(202)513-1234
+	202-513-1234
+************************************************************************/
+function validPhoneNum(str) {
+	var acceptBlank = false;
+	if (arguments.length == 2) acceptBlank = arguments[1];
+
+	var re = /^[\s]*\D?(\d{3})\D?\D?(\d{3})\D?(\d{4})[\s]*$/;
+
+	if (acceptBlank)
+		return (isBlank(str) || re.test(str))
+	else
+		return re.test(str);
+}
+// End validPhoneNum()
+
+
+
+/************************************************************************
+validEmail(str, [acceptBlank=false])
+	str = string to validate
+	acceptBlank = valid if empty string or all-whitespace
+Returns:
+	TRUE if str is a properly-formatted e-mail address
+	FALSE if it does not
+************************************************************************/
+function validEmail(str) {
+	var acceptBlank = false;
+	if (arguments.length == 2) acceptBlank = arguments[1];
+
+	var re = /^[\s]*([a-zA-Z0-9_\-\.]+)@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.)|(([a-zA-Z0-9\-]+\.)+))([a-zA-Z]{2,4}|[0-9]{1,3})(\]?)[\s]*$/;
+
+	if (acceptBlank)
+		return (isBlank(str) || re.test(str))
+	else
+		return re.test(str);
+}
+// End validEmail()
+
+
+
+/************************************************************************
+validUrl(str, [acceptBlank=false])
+	str = string to validate
+	acceptBlank = valid if empty string or all-whitespace
+Returns:
+	TRUE if str is a properly-formatted FTP or HTTP URL
+	FALSE if it is not
+************************************************************************/
+function validUrl(str) {
+	var acceptBlank = false;
+	if (arguments.length == 2) acceptBlank = arguments[1];
+
+	var re = /^[\s]*(http|https|ftp)\:\/\/((([a-z_0-9\-]+)+(([\:]?)+([a-z_0-9\-]+))?)(\@+)?)?(((((([0-1])?([0-9])?[0-9])|(2[0-4][0-9])|(2[0-5][0-5])))\.(((([0-1])?([0-9])?[0-9])|(2[0-4][0-9])|(2[0-5][0-5])))\.(((([0-1])?([0-9])?[0-9])|(2[0-4][0-9])|(2[0-5][0-5])))\.(((([0-1])?([0-9])?[0-9])|(2[0-4][0-9])|(2[0-5][0-5]))))|((([a-z0-9\-])+\.)+([a-z]{2}\.[a-z]{2}|[a-z]{2,4})))(([\:])(([1-9]{1}[0-9]{1,3})|([1-5]{1}[0-9]{2,4})|(6[0-5]{2}[0-3][0-6])))?[\s]*$/;
+
+	if (acceptBlank)
+		return (isBlank(str) || re.test(str))
+	else
+		return re.test(str);
+}
+// End validUrl()
+
+
+
+/************************************************************************
+validDate(str, [acceptBlank=false])
+	str = string to validate
+	acceptBlank = valid if empty string or all-whitespace
+Returns:
+	TRUE if str is a valid date
+	FALSE if it is not
+Notes:
+	Uses American date format (mm/dd/yyyy instead of dd/mm/yyyy)
+	Requires "/" as delimeter
+	Rejects 2-digit years
+	This function not only checks the format, but also makes sure the
+	date itself is valid (e.g. will not accept Sept 31) and will
+	account for leap years.
+************************************************************************/
+function validDate(str) {
+	var isValid = false;
+	var validYear = false, validMonth = false, validDay = false;
+	
+	var acceptBlank = false;
+	if (arguments.length == 2) acceptBlank = arguments[1];
+
+	var arrDate = str.split('/');
+	
+	try {
+		var intYear = parseInt(arrDate[2], 10);
+		var intMonth = parseInt(arrDate[0], 10);
+		var intDay = parseInt(arrDate[1], 10);
+		
+		/************************************************************************
+			Check for valid year
+		************************************************************************/
+		if ((intYear > 1899) && (intYear < 10000)) validYear = true;
+
+		/************************************************************************
+			Check for valid month
+		************************************************************************/
+		if ((intMonth > 0) && (intMonth < 13)) validMonth = true;
+
+		/************************************************************************
+			Check for valid day
+		************************************************************************/
+		// February
+		if (intMonth == 2 ) {
+			if (((intYear % 4 == 0) && (intDay <= 29)) || ((intYear % 4 != 0) && (intDay <= 28))) validDay = true;
+
+		// Months with 31 days: January, March, May, July, August, October, December
+		} else if (((intMonth % 2 != 0) && (intMonth <= 7)) || ((intMonth % 2 == 0) && (intMonth >= 8))) {
+			if (intDay <= 31 ) validDay = true;
+			
+		// Months with 30 days: April, June, September, November
+		} else if (((intMonth % 2 == 0) && (intMonth <= 7)) || ((intMonth % 2 != 0) && (intMonth >= 8))) {
+			if (intDay <= 30 ) validDay = true;
+		} 
+
+		if (validYear && validMonth && validDay) isValid = true;
+	} catch (e) {
+		isValid = false;
+	}
+
+	if (acceptBlank)
+		return (isBlank(str) || isValid)
+	else
+		return isValid;
+}
+// End validDate()
+
+/************************************************************************
+validTime(str, [acceptBlank=false])
+	str = string to validate
+	acceptBlank = valid if empty string or all-whitespace
+Returns:
+	TRUE if str is a valid time
+	FALSE if it is not
+Notes:
+	Accepts military time hh:mm or standard time h:mm [am|pm]
+************************************************************************/
+function validTime(str) {
+	var acceptBlank = false;
+	if (arguments.length == 2) acceptBlank = arguments[1];
+	var re = /^[\s]*((0?[1-9]|1[012])(:[0-5]\d){0,2}(\ [AP]M))$|^([01]\d|2[0-3])(:[0-5]\d){1,2}[\s]*$/;
+
+	if (acceptBlank)
+		return (isBlank(str) || re.test(str))
+	else
+		return re.test(str);
+}
+// End validTime()
+
+
+/************************************************************************
+isWholeNum(str, [acceptBlank=false])
+	str = string to validate
+	acceptBlank = valid if empty string or all-whitespace
+Returns:
+	TRUE if str
+	FALSE if it is not
+
+Notes:
+	Accepts decimals as long as it's a whole number--(e.g. 1234.000)
+************************************************************************/
+function isWholeNum(str) {
+	var acceptBlank = false;
+	if (arguments.length == 2) acceptBlank = arguments[1];
+
+	var re = /^[\s]*[-+]?[1-9]\d*\.?[0]*[\s]*$/;
+
+	if (acceptBlank)
+		return (isBlank(str) || re.test(str))
+	else
+		return re.test(str);
+}
+// End isWholeNum()
+
+/************************************************************************
+isInteger(str, [acceptBlank=false])
+	str = string to validate
+	acceptBlank = valid if empty string or all-whitespace
+Returns:
+	TRUE if str
+	FALSE if it is not
+
+Notes:
+	Accepts Integer values (e.g. 0, 99, +324, -1)
+************************************************************************/
+function isInteger(str) {
+	var acceptBlank = false;
+	if (arguments.length == 2) acceptBlank = arguments[1];
+
+	var re = /^[\s]*[-+]?[0-9]\d*[\s]*$/;
+
+	if (acceptBlank)
+		return (isBlank(str) || re.test(str))
+	else
+		return re.test(str);
+}
+// End isInteger()
+
+/************************************************************************
+isNonZeroInteger(str, [acceptBlank=false])
+	str = string to validate
+	acceptBlank = valid if empty string or all-whitespace
+Returns:
+	TRUE if str
+	FALSE if it is not
+
+Notes:
+	Accepts Integer values other than 0 (e.g. 99, +324, -1)
+************************************************************************/
+function isNonZeroInteger(str) {
+	var acceptBlank = false;
+	if (arguments.length == 2) acceptBlank = arguments[1];
+	var isValid = false;
+	
+	isValid = (isInteger(str, acceptBlank) && (parseInt(str) != 0));
+
+	if (acceptBlank)
+		return (isBlank(str) || isValid)
+	else
+		return isValid;
+}
+// End isNonZeroInteger()
+
+/************************************************************************
+isAllDigits(str, [acceptBlank=false])
+	str = string to validate
+	acceptBlank = valid if empty string or all-whitespace
+Returns:
+	TRUE if str consists only of digits from 0-9
+	FALSE if it is not
+
+************************************************************************/
+function isAllDigits(str) {
+	var acceptBlank = false;
+	if (arguments.length == 2) acceptBlank = arguments[1];
+
+	var re = /^[\s]*\d*[\s]*$/;
+
+	if (acceptBlank)
+		return (isBlank(str) || re.test(str))
+	else
+		return re.test(str);
+}
+// End isAllDigits()
+
+/************************************************************************
+validCurrency(str, [acceptBlank=false])
+	str = string to validate
+	acceptBlank = valid if empty string or all-whitespace
+Returns:
+	TRUE if str
+	FALSE if it is not
+************************************************************************/
+function validCurrency(str) {
+	var acceptBlank = false;
+	if (arguments.length == 2) acceptBlank = arguments[1];
+	var re = /^[\s]*?(\d{1,3}?(\d{3}?)*\d{3}(\.\d{1,3})?|\d{1,3}(\.\d{0,2})?)[\s]*$/;
+
+	if (acceptBlank)
+		return (isBlank(str) || re.test(str))
+	else
+		return re.test(str);
+}
+// End validCurrency()
+
+
+/************************************************************************
+validPercent(str, [acceptBlank=false])
+	str = string to validate
+	acceptBlank = valid if empty string or all-whitespace
+Returns:
+	TRUE if str
+	FALSE if it is not
+************************************************************************/
+function validPercent(str) {
+	var acceptBlank = false;
+	if (arguments.length == 2) acceptBlank = arguments[1];
+
+	var re = /^[\s]*((\d{1,3}\.?\d*)|(\d{1,3}))[\s]*$/;
+	var isValid = false;
+
+	isValid = re.test(str) && (parseFloat(str) <= 100);
+
+	if (acceptBlank)
+		return (isBlank(str) || isValid)
+	else
+		return isValid;
+}
+// End validPercent()
+
+
+/************************************************************************
+jsCheckInvalidChars(form)
+	form = Form object to validate
+Returns:
+	TRUE if str
+	FALSE if it is not
+************************************************************************/
+  function jsCheckInvalidChars(form) {
+    var alertString = "";
+  	var re = /[<>]/;
+	var currAlert = "";
+
+    for (var i = 0; i < form.elements.length; i++) {
+	  if (form.elements[i].type == "text") {
+	    if (re.test(form.elements[i].value)) {
+		  currAlert = "Field "+ form.elements[i].name +" cannot contain < or >.";
+		  alertString = alertString + currAlert + '\n';   
+		}
+	  }
+	}
+
+	return alertString;
+  }	// jsCheckInvalidChars(form)
+
+/************************************************************************
+dateDiff(date1, date2)
+Returns:
+	Difference (in days) between date2 and date1.
+	If date1 = date2, returns 0
+	If date2 is later than date1, returns positive number
+	If date2 is earlier than date1, returns negative number
+************************************************************************/
+function dateDiff(date1, date2) {
+    var dateDiff = 0;
+    
+    var bufferA = Date.parse( date1 ) ;
+    var bufferB = Date.parse( date2 ) ;
+    	
+    // check that the start parameter is a valid Date. 
+    if ( (! isNaN(bufferA)) && (! isNaN(bufferB)) ) {
+		var number = bufferB-bufferA ;
+		
+		dateDiff = parseInt(number / 1000) ;
+		// dateDiff += parseInt((number % 86400000)/43200001) ;
+    }
+	
+    return dateDiff;
+}
+// End dateDiff()
+
+// Function template
+/************************************************************************
+FunctionName(str, [acceptBlank=false])
+	str = string to validate
+	acceptBlank = valid if empty string or all-whitespace
+Returns:
+	TRUE if
+	FALSE if
+************************************************************************/
+/*
+function FunctionName(str) {
+	var acceptBlank = false;
+	if (arguments.length == 2) acceptBlank = arguments[1];
+
+	var re = ;
+
+	if (acceptBlank)
+		return (isBlank(str) || re.test(str))
+	else
+		return re.test(str);
+}
+// End FunctionName()
+*/	
+	
+	
+function validateForm(){
+	console.log('validateForm');
+	clearErrorMsgs();
+	
+//check for required radio buttons and checkboxes first
+	// check for required select (can't be "Select...")
+	
+	$('input').each(function(){
+		var $thisFormField = $(this);
+		//check for black fields on required fields
+		if( $thisFormField.val().trim() =="" && $thisFormField.prop('required') ){
+			$thisFormField.closest('.form-group').addClass('msg-box msg-error').prepend('<span class="msg-error-text"><span class="glyphicon glyphicon-remove"></span>Required Field</span>');
+			return;
+		}
+
+		if( $thisFormField.prop("name")=="number" && !isNumber($thisFormField.val())){
+			$thisFormField.closest('.form-group').addClass('msg-box msg-error').prepend('<span class="msg-error-text"><span class="glyphicon glyphicon-remove"></span>Value can only contain numbers</span>');
+		}
+		
+		if( $thisFormField.prop("name")=="currency"){
+			
+		}
+		
+		
+		if( $thisFormField.prop("name")=="email" && !isValidEmail($thisFormField.val())){
+			$thisFormField.closest('.form-group').addClass('msg-box msg-error').prepend('<span class="msg-error-text"><span class="glyphicon glyphicon-remove"></span>Invalid Email</span>');
+		}
+		
+		
+		if( $thisFormField.prop("name")=="addressNoPOBox"){
+			
+		}
+		if( $thisFormField.prop("name")=="zipCode"){
+			
+		}
+		if( $thisFormField.prop("name")=="postalCode"){
+			
+		}
+		if( $thisFormField.prop("name")=="phone"){
+			
+		}
+		if( $thisFormField.prop("name")=="fax"){
+			
+		}
+		if( $thisFormField.prop("name")=="date"){
+			
+		}
+		if( $thisFormField.prop("name")=="time"){
+			
+		}
+		if( $thisFormField.prop("name")=="url"){
+			
+		}
+		if( $thisFormField.prop("name")=="creditCard"){
+			
+		}
+		if( $thisFormField.prop("name")=="password"){
+			
+		}
+		if( $thisFormField.prop("name")=="latitude"){
+			
+		}
+		if( $thisFormField.prop("name")=="longitude"){
+			
+		}
+		//unique to FCC
+		if( $thisFormField.prop("name")=="frn" && !isNumber($thisFormField.val())){
+			$thisFormField.closest('.form-group').addClass('msg-box msg-error').prepend('<span class="msg-error-text"><span class="glyphicon glyphicon-remove"></span>FRN can only contain numbers</span>');
+		}
+		if( $thisFormField.prop("name")=="sac"){
+			//Study Area Codes (SACs) must be 6-digits and associated with a state
+		}
+		if( $thisFormField.prop("name")=="filerId"){
+			//numeric
+		}
+		// build city drop down from selected state selection list
+		// use API to test for valid U.S addresses and city/zip code combinations
+	})
+};
+
+	
+	
+$(document).ready(function() {
+	
+$('.btn-submit').on('click', function(){
+	validateForm();
+});
+	
+
+});
+// END DEMO CODE ONLY DO NOT USE
+
+</script>
+</body>
+</html>
