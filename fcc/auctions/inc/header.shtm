@@ -1,0 +1,24 @@
+<header>
+  <div class="jumpLinks"><a href="#skiptarget1" class="sr-only focusable">Skip to main content</a><a href="#skiptarget3" class="sr-only focusable">Skip to footer and contact information</a> </div>
+  <script>
+		var popMessage="true";
+		var confirmMessage="You have NOT SUBMITTED your changes.  In order for your changes to take effect \nyou must Certify and Submit your application.  Click CANCEL to proceed with Certifying \nand Submitting your application.  Click Log O  ut to continue without submitting your changes.";
+  </script>
+  <div class="container" id="fcc-banner"> <a href="http://www.fcc.gov"> <img title="Go to the Federal Communications Commission homepage at www.fcc.gov" alt="Go to the Federal Communications Commission homepage at www.fcc.gov" src="../img/navFCC.png"> </a>
+    <h1>Auctions</h1>
+    <div id="nav-signin"> <span class="login-name"><abbr title="FCC Registration Number">FRN</abbr>: 9999999999  &#160; | &#160;</span>
+      <input id="nav-logout" data-toggle="my_confirm" data-message="You have NOT SUBMITTED your changes.  In order for your changes to take effect \nyou must Certify and Submit your application.  Click CANCEL to proceed with Certifying \nand Submitting your application.  Click OK to continue without submitting your changes."  class="btn-link" type="button" value="Log Out"  />
+    </div>
+  </div>
+  <nav class="navbar navbar-default" role="navigation">
+    <div class="container">
+      <div>
+        <ul class="nav navbar-nav" role="tablist">
+          <li role="tab"><a href="http://www.fcc.gov/">FCC</a></li>
+          <li role="tab"><span class="breadcrumb-separator">&#187;</span> <a href="http://wireless.fcc.gov/">Wireless</a></li>
+          <li role="tab"><span class="breadcrumb-separator">&#187;</span> <span class="unlink">Auctions</span></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+</header>

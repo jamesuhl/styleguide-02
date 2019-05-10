@@ -1,0 +1,24 @@
+<!-- old design: incorrect tabbing order: 1. Back 2. Save 3. Save and Continue - new tabbing order shown below -->
+<div class="frm-ft row">
+  <div class="col-sm-6">
+    <input type="submit" class="btn btn-default" value="&#171; Back" />
+  </div>
+  <div class="col-sm-6">
+  <div class="pull-right">
+  <input type="submit" class="btn btn-default" value="Save" />
+  <input type="submit" class="btn btn-primary" value="Save &#38; Continue &#187;" />
+    </div>
+  </div>
+</div>
+
+<!-- new design ordering 'Save and Continue' now first in tabbing order. -->
+<!-- commented out for now as it will mess up the navigation in the mockups. This is correct code to fix tabbing order -->
+<!--<div class="frm-ft row">
+  <div class="col-sm-6 col-sm-push-6">
+      <input type="submit" class="btn btn-primary pull-right" value="Save &#38; Continue &#187;" />
+      <input type="submit" class="btn btn-default pull-right" value="Save" />
+    </div>
+    <div class="col-sm-6 col-sm-pull-6">
+      <input type="submit" class="btn btn-default" value="&#171; Back" />
+    </div>
+</div>-->

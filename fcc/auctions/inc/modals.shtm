@@ -1,0 +1,111 @@
+<!-- Modal quit -->
+
+<div class="modal fade" id="modal-quit" tabindex="-1" role="alert" aria-labelledby="modal-quit-label" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&#215;</span><span class="sr-only">Close</span></button>
+        <h4 class="modal-title" id="modal-quit-label">Message from webpage</h4>
+      </div>
+      <div class="modal-body"> Are you sure you want to Quit? </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+        <button type="button" class="btn btn-primary" data-dismiss="modal">OK</button>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- Modal confirm-->
+<div class="modal fade" id="modal-confirm" tabindex="-1" role="alert" aria-labelledby="modal-confirmLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&#215;</span></button>
+        <h4 id="modal-confirmLabel" class="modal-title">Confirm</h4>
+      </div>
+      <div class="modal-body">
+        <p class="modal-message"></p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+        <button type="button" class="btn btn-primary">OK</button>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- END modal --> 
+
+<!-- Modal Alert -->
+<div id="modal-alert" class="modal fade" tabindex="-1" role="alert" aria-labelledby="modal-alertLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&#215;</span></button>
+        <h4 id="modal-alertLabel" class="modal-title">Alert</h4>
+      </div>
+      <div class="modal-body">
+        <p class="modal-message"></p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" data-dismiss="modal" class="btn btn-primary">OK</button>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- END modal --> 
+
+<!-- Modal Process -->
+<div id="modal-process" class="modal fade"  tabindex="-1" role="alert" aria-labelledby="modal-processLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 id="modal-processLabel" class="modal-title">Processing...</h4>
+      </div>
+      <div class="modal-body">
+        <p class="text-center"><img src="../auctions/img/loading-big.gif" alt="Loading..." /> <span class="modal-message">Loading licenses. Please wait.</span> </p>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- END modal --> 
+
+<!-- Modal Session Timeout -->
+<div id="modal-timeout" class="modal fade"  tabindex="-1" role="alert" aria-labelledby="hd-modal-leave" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&#215;</span></button>
+        <h4 id="hd-modal-leave" class="modal-title">Warning</h4>
+      </div>
+      <div class="modal-body">
+        <p role="alert"><strong>WARNING:</strong> Your session will timeout in <b class="timeleft"></b></p>
+        <p>Select one of the options below.</p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" data-dismiss="modal" class="btn btn-default answer-N">Log out</button>
+        <button type="button" data-dismiss="modal" class="btn btn-primary answer-Y">I Need More Time</button>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- END modal --> 
+
+<!-- Modal Logout -->
+<div id="modal-logout" class="modal fade" tabindex="-1" role="alert" aria-labelledby="modal-quit-label" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal"> <span aria-hidden="true">&#215;</span><span class="sr-only">Close</span> </button>
+        <h4 class="modal-title" id="modal-quit-label">FCC Auctions Application</h4>
+      </div>
+      <div class="modal-body">
+        <p class="modal-message">Are you sure you want to logout?</p>
+      </div>
+      <div class="modal-footer">
+        <input type="button" class="btn answer-N" value="Log out" />
+        <input type="button" class="btn btn-default" data-dismiss="modal" value="Cancel" />
+      </div>
+    </div>
+  </div>
+</div>
+<!-- END modal --> 

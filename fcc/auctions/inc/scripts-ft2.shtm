@@ -1,0 +1,62 @@
+<script src="../js/libs/jquery-1.11.0.min.js"></script>
+<script src="../js/libs/bootstrap.min-v3.3.5.js"></script>
+
+<!--[if gte IE 9]><!-->
+<script src="../js/libs/chosen.jquery.min.js"></script>
+<script src="../js/libs/jquery.maskedinput.min.js"></script>
+<!--<![endif]-->
+<script src="../js/libs/jquery.collapsible.js"></script>
+<script src="../js/libs/jquery.dataTables.min.js"></script> 
+<script src="../js/libs/dataTables.bootstrap.js"></script> 
+
+<script src="../js/libs/dataTables.tableTools.js"></script>
+<script src="../js/libs/jquery.cookie.js"></script>
+
+<!-- <script src="js/appSearch.js"></script> -->
+
+<script src="../js/util.js"></script>
+
+<!-- Candidate for inclusion within  util.js  -->
+<!--<script>
+$(document).ready(function() {
+	function openForm(){$('#form-auction').collapse("show");};
+	function closeForm(){$('#form-auction').collapse("hide");};
+	
+	
+	
+	if (typeof sessionStorage.formIsHidden === 'undefined') {		
+		if($('#form-auction').not(':visible')){ sessionStorage.setItem("formIsHidden", true); };
+		if($('#form-auction').is(":visible")) { sessionStorage.setItem("formIsHidden", false);};
+	}else if(sessionStorage.formIsHidden=='true'){
+		closeForm();
+	}else{
+		openForm();
+	};
+	$('#form-auction').on('shown.bs.collapse', function(){
+        sessionStorage.formIsHidden = false;
+    }).on('hidden.bs.collapse', function(){ 
+        sessionStorage.formIsHidden = true;
+    });
+});
+</script>-->
+
+<!-- Mockup only -->
+<script>
+$(document).ready(function() {
+	$('#input-auctions').on('click', function(e){ e.preventDefault(); location.href = 'auctions-setup.html'; });
+	$('#input-applications').on('click', function(e){ e.preventDefault(); location.href = 'application-select.html'; });
+	$('#input-reports').on('click', function(e){ e.preventDefault(); location.href = 'reports-auctionSelect.html'; });
+	$('#input-system').on('click', function(e){ e.preventDefault(); location.href = 'system-userManagement.html'; });
+	$('#input-documents').on('click', function(e){ e.preventDefault(); location.href = 'documents.html'; });
+	$('#input-search').on('click', function(e){ e.preventDefault(); location.href = 'search.html'; });
+	
+	
+		
+function auctionSelected(){
+if ( $('#sel-menu').val() == 0 ){$('.menu-wrapper').find('input').prop( "disabled", true ); 
+		
+}else{$('.menu-wrapper').find('input').removeProp('disabled'); } }
+
+$('#sel-menu').change(function() {auctionSelected(); });
+});
+</script>

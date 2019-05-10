@@ -1,0 +1,15 @@
+<a tabindex="-1" class="visuallyhidden" id="skiptarget2"></a>
+<h3 class="hd-panel">Application Sections</h3>
+<ol class="nav nav-list sidenav-steps" role="navigation">
+  <li><a id="appStepAppInfo" class="collapsed" href="void#" data-toggle="collapsible" data-target="#ol-appInfo"><span class="appStepSection">Applicant Information</span> <span class="glyphicon glyphicon-triangle-left pull-right"></span></a>
+    <ol id="ol-appInfo" style="display:none;">
+      <li><a href="applicant-legal-class.html">Legal Classification</a></li>
+      <li><a href="applicant-name.html">Applicant Details</a></li>
+      <li><a href="applicant-contact.html">Contact Details</a></li>
+      <li><a href="applicant-authBidders.html">Initial Commitment Representatives</a></li>
+      <li><a href="applicant-form-question.html">Additional 39 GHz Licenses To Be Consolidated</a></li>
+    </ol>
+  </li>
+  <li><a href="summary.html"><span class="appStepSection">Summary</span></a></li>
+  <li><a href="certify.html"><span class="appStepSection">Certify &#38; Submit</span></a></li>
+</ol>
