@@ -1,0 +1,335 @@
+<!DOCTYPE HTML>
+<!--[if IE 8]><html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!-->
+<html lang="en" class="no-js">
+<!--<![endif]-->
+<head>
+<!--#include file="../inc/meta.shtm" -->
+<title>&#171; FCC Auctions &#171; FCC</title>
+<!--#include file="../inc/links-head.shtm" -->
+</head>
+<body>
+<form id="form-mainForm" class="form-horizontal" action="/" method="POST" name="form-mainForm" novalidate>
+  <!-- Main header --> 
+  <!--#include file="../inc/header.shtm" -->
+  <main class="container"> 
+    <!--#include file="../inc/pg-head-meta-shortForm.shtm" -->
+    <div class="row">
+      <div class="col-sm-8 col-md-9 page-content"><a tabindex="-1" id="skiptarget1" class="sr-only"></a>
+        <p class="help-reqd"><span class="required-char">*</span> indicates required field</p>
+        <section class="section section-divider" role="region">
+          <div class="row row-sectionTitle">
+            <h3 class="col-sm-10">Additional 39 GHz Licenses To Be Consolidated</h3>
+            <div class="col-sm-2"><a href="#" class="pull-right inline-help-link collapsed" data-target="#help-01" data-toggle="collapsible"><span class="glyphicon glyphicon-triangle-left"></span>Help</a></div>
+          </div>
+          <div id="help-01" class="alert alert-info" role="alert" style="display:none;">
+            <div class="alert-hd"><span class="glyphicon glyphicon-info-sign"></span> Additional 39 GHz Licenses To Be Consolidated Help</div>
+            <div class="help-wrapper">{{Help content here}}</div>
+          </div>
+          <div class="row form-group">
+            <fieldset class="col-sm-12 fieldset-indent">
+              <legend class="legend-indent"><span class="required-char">*</span> Are there any licenses to be consolidated with the license(s) of the applicant for purposes of Auction 103?</legend>
+              <input id="yes477"  type="radio" name="frm477Questn" value="Y" aria-describedby="error-msg-01" data-toggle="collapsible" data-target="#hasFrn" checked />
+              <label class="lbl-inline" for="yes477">Yes</label>
+              <input id="no477" type="radio" name="frm477Questn" value="N" aria-describedby="error-msg-01" />
+              <label class="lbl-inline" for="no477">No</label>
+            </fieldset>
+          </div>
+        </section>
+        <section id="hasFrn" class="section section-divider" style="display:none;">
+          <div class="row row-sectionTitle">
+            <h3  id="id477" class="col-sm-10">Identify FRN(s)</h3>
+            <div class="col-sm-2"><a class="pull-right inline-help-link collapsed" data-target="#help-02" data-toggle="collapsible"><span class="glyphicon glyphicon-triangle-left"></span>Help</a></div>
+          </div>
+          <div id="help-02" class="alert alert-info" role="alert" style="display:none;">
+            <div class="alert-hd"><span class="glyphicon glyphicon-info-sign"></span> Identify FRN(s) Help</div>
+            <div class="help-wrapper">{{Help content here}}</div>
+          </div>
+          <p>Please list the FRN for each incumbent 39 GHz licensee with any license(s) to be consolidated with the license(s) of the applicant for purposes of Auction 103.</p>
+          <div class="row form-group">
+            <label class="control-label col-sm-2" for="inputFrn"><span class="required-char">*</span> FRN:</label>
+            <div class="col-sm-10">
+              <input id="inputFrn" class="form-control form-control-inline js-sac" type="text" name="frn" value="" size="10" autocomplete="off" maxlength="6" />
+            </div>
+          </div>
+      <!--    <div class="row form-group">
+            <label class="control-label col-sm-2" for="inputName"><span class="required-char">*</span> Name:</label>
+            <div class="col-sm-10">
+              <input id="inputName" class="form-control form-control-inline" type="text" name="name" value="" size="30" autocomplete="off" maxlength="255" />
+            </div>
+          </div>-->
+          <div class="row form-group" data-id="row-btn-add">
+            <div class="col-sm-10 col-sm-offset-2"> <a id="btn-update" class="btn btn-primary btn-update hide" role="button" href="#id477" >Update</a> <a id="btn-addBidder2" class="btn btn-primary btn-add" role="button" href="#id477">Add</a>
+              <button  class="btn btn-default btn-cancel" type="button">Cancel</button>
+            </div>
+          </div>
+          <div  id="msg-noFrns" class="row">
+            <div class="col-sm-10 col-sm-offset-2"><em>(No FRNs listed)</em></div>
+          </div>
+          <div id="table-frnList" class="table-wrapper" style="display:none;">
+            <table id="table1" class="table table-striped table-hover table-sacAdd">
+              <thead>
+                <tr>
+                  <th scope="col">FRN</th>
+                  <th scope="col">Name</th>
+                  <th scope="col">Actions</th>
+                </tr>
+              </thead>
+              <tbody>
+              </tbody>
+            </table>
+          </div>
+          <div id="result" style="border:1px solid red; padding:4px;"> </div>
+        </section>
+        
+        <!--#include file="../inc/frm-ft.shtm" --> 
+      </div>
+      <div class="sidebar sidebar-left col-sm-4 col-md-3"> 
+        <!--#include file="/auctions/inc/app-steps-373947Ghz-short.shtm" --> 
+      </div>
+    </div>
+  </main>
+</form>
+<!--#include file="../inc/modals.shtm" --> 
+<!-- include file="../inc/modal-searchFrn.shtm" --> 
+<!--#include file="../inc/footer.shtm" --> 
+<!--#include file="../inc/scripts-ft2.shtm" --> 
+<script>
+// DEMO CODE ONLY DO NOT USE
+	
+	
+$(document).ready(function() {
+	var appSection ="Applicant Information";
+	var appSectionID ='#appStepPoEligAreas';
+	var pageID ="#form477-frn-ques";
+	var pageTitle ="Form 477";
+	var prevPage ="applicant-authBidders.html";
+	var nextPage ="summary.html";
+	//common mockup JS
+	$('title').prepend(pageTitle);
+	$('#appStepAppInfo').click();
+	$('#ol-appInfo').find('li:eq(4)').addClass('active').prepend('<span><span class="icon-arrow-right"></span>');
+	//$.getScript('../inc/update-appSteps.js', function(){updateAppSteps(0);});
+	$(pageID).addClass('active').prepend('<span class="icon-arrow-right"></span>');
+	$('.has-kicker').text(appSection);
+	$('.btn-edit').click(function(e) {
+        e.preventDefault();
+    });
+	$('.btn-remove').click(function(e) {
+        e.preventDefault();
+    });
+	$('.frm-ft').find('.btn:first').click(function(e) {
+        e.preventDefault();
+		location.href = prevPage;
+    });
+	$('.frm-ft').find('.btn:eq(1)').click(function(e) {
+        e.preventDefault();
+    });	
+	$('.frm-ft').find('.btn-primary').click(function(e) {
+        e.preventDefault();
+		location.href = nextPage;
+    });	
+	$(appSectionID).click();
+
+	// CRUD Code
+	var tableData = [
+	{"frn":"0000001111", "name":"ABC Company"},
+	{"frn":"0000002222", "name":"DEF Cellular"},
+	{"frn":"0000003333", "name":"HIJ Communications"},
+	{"frn":"0000004444", "name":"LMNO Mobile Systems"}
+];
+	
+	
+	var randomNames = ["AlphaBeta Company","Charlie Voice Cellular","Delta Wireless","XYZ Company","Casper Communications"];
+	
+	var crud = {
+		/*
+		arr is the array of records
+		counter tracks num of times the Add btn clicked, used to select random company names
+		rowCounter tracks length of the array
+		*/
+			arr: [],
+			counter: 0,
+			rowCounter: 0,
+			$addBtn:$('.btn-add'),
+			$updateBtn:$('.btn-update'),
+			$cancelBtn:$('.btn-cancel'),
+            init: function(data, sectionId) {
+				if(data != undefined){ 
+					//if no data provided during initialization, prototype displays default view - no table with message
+					for ( let i = 0; i < data.length; i++) {
+						crud.add( data[i] );
+					}
+				}
+				
+                crud.$addBtn.on('click', crud.add);
+                crud.$updateBtn.on('click', crud.save);
+                crud.$cancelBtn.on('click', crud.clear);
+                $('tbody').on('click', '.btn-edit', crud.edit);
+                $('tbody').on('click','.btn-remove', crud.delete);
+				crud.renderView();	
+            },
+			create: function(argObj) {
+				var obj = {};
+				if(argObj === undefined){
+					// if this function called with no params then it was called by a button click 
+					var frn = $('[name="frn"]').val();
+					if($('[name="name"]').length){
+						// check if name field exists, get value form there
+						var name = $('[name="name"]').val();
+					}else{
+						// no textfield on the page so we'll generate a random name
+						var name = crud.lookUpName(frn);
+					}
+				}else{
+					// function called at initalization with a param 
+					var frn = argObj.frn;
+					var name = argObj.name;
+				}
+				var TR = '';
+				 obj = {
+                    dataId: new Date().getTime(),
+                    frn: frn,
+					name: name
+                };
+                return obj;
+            },
+            add: function(argObj) { 
+				var frn;
+				if(argObj.target){
+					// if this function was called from the Add button
+					frn = $('[name="frn"]').val();
+					var newObj = crud.create();
+				}else{
+					frn = argObj.frn;
+					var newObj = crud.create(argObj);	
+				}
+				if (frn.trim() === '') { console.error('FRN is empty'); return;}
+				//check if required fields actually have value
+                crud.arr.push(newObj);
+                crud.clear();
+				TR = crud.rowConstructor(newObj);
+                $('#table-frnList').find('tbody').append(TR);
+				$('#inputFrn').focus();
+				crud.renderView();
+            },
+            edit: function() {
+				var $thisTR = $(this).closest('tr');
+				var id = parseInt($thisTR.attr('data-id')); //id = 1524680708410"
+				if(isNaN(id)){ 
+					//This record is not in the array because it was hard coded, edit will not work');
+					return;
+					
+					}else{
+						var foo = crud.arr.filter(function(point) { 
+							return point.dataId === id; })[0];
+                		crud.editID = id;
+                		$.map(foo, function(value, key) {
+						var fieldName = '[name="' + key + '"]';
+                    	$(fieldName).val(value);
+						})
+					}
+               crud.$addBtn.addClass('hide');
+               crud.$updateBtn.removeClass('hide');
+			   $('#inputFrn').focus();
+			},
+            save: function() {
+				var id = crud.editID;
+                var cObj = crud.arr.filter(function(point) {return point.dataId === id; })[0];
+                var objID = crud.arr.indexOf(cObj);
+                var newObj = crud.create();
+                crud.arr.splice(objID, 1, newObj);
+				TR = crud.rowConstructor(newObj);
+                $('[data-id="' + id + '"]').replaceWith(TR);
+                crud.clear();
+                crud.$addBtn.removeClass('hide');
+                crud.$updateBtn.addClass('hide');
+				crud.renderView();
+            },
+			rowConstructor: function(obj) {
+				var newRow = '<tr data-id="' + obj.dataId + '"><td>' + obj.frn + '</td><td>' + obj.name+ '</td><td><button class="btn btn-default btn-xs btn-edit" type="button">Edit <span class=\"sr-only\">'+obj.name+'</span></button><button class="btn btn-default btn-xs btn-remove" type="button">Remove <span class=\"sr-only\">'+obj.name+'</span></button></td></tr>';
+				return newRow;
+			},
+            delete: function() {               
+				var thisTR = $(this).closest('tr');
+				var thisDataId = Number(thisTR.attr('data-id'));
+				var dIndex = crud.arr.findIndex(function(item) {
+				return item.dataId === thisDataId //this is why Number() method needed to be used, else use '=='
+				});
+				crud.arr.splice(dIndex, 1);
+				thisTR.remove();
+				crud.renderView();
+            },
+            clear: function() {
+				$('#form-mainForm')[0].reset();
+                crud.$addBtn.removeClass('hide');
+                crud.$updateBtn.addClass('hide');
+            },
+			lookUpName:function(frn){
+/*				if(window.randomNames != undefined){ 
+					if(crud.counter > randomNames.length){crud.counter = 0;}
+					var stringName = randomNames[crud.counter];
+					crud.counter++;
+					return stringName;			
+				}else{
+					console.log('randomNames not found ');
+					return "Some Company Name";		
+				}*/
+				if(crud.counter >= randomNames.length){crud.counter = 0;}
+					//else{var stringName = "Some Company Name";}
+					var stringName = randomNames[crud.counter];
+					crud.counter++;
+					return stringName;
+			},
+		    renderView: function(){
+				crud.rowCounter = crud.arr.length;
+				if(crud.rowCounter <= 0){
+					$('#table-frnList').hide(); 
+					$('#msg-noFrns').show();   
+				}else{
+					$('#table-frnList').show(); 
+					$('#msg-noFrns').hide(); 
+				}
+				 // *****************************************
+				//Dev Only - code below shows the array info
+				crud.rowCounter = crud.arr.length;
+				$("#result").html('<b><u>Array Display</u></b><p>Num of Rows: '+crud.rowCounter+'</p>');
+				 $.each(crud.arr, function(key, value){
+					 $("#result").append(key + ": &nbsp; data-id: " + value.dataId + ', &nbsp;&nbsp; FRN: <b>'+value.frn +'</b>, &nbsp;&nbsp; name: <b>'+value.name+'</b><br>');
+				 	
+				 });
+			}
+		}; 
+	crud.init(tableData);
+});
+// END DEMO CODE ONLY DO NOT USE
+
+$(document).ready(function() {
+	
+	$('#inputFrn').mask("9999999999");
+	$('#filerId').mask("999999");
+
+  if( $('#yes477').is(':checked')) {
+	  $('#no477').on('click', function(){
+			  //Need to fix this before going to production- it needs to run after info has been saved
+			  $('#modal-confirm')
+				  .modal('show')  
+		  });
+  }
+
+	$('#modal-confirm').on('show.bs.modal', function () {
+		$(this).find('.modal-message').text('Changing your response to \'No\' will remove all previously identified FRNs related to this question. Are you sure you want to continue? Select \'OK\' to continue, or \'Cancel\' to return to your application with no change.').end()
+				  .find('.modal-footer .btn-default, .close').on('click', function(){ $('#yes477').prop('checked', true).trigger('change') }).end()
+				  .find('.modal-footer .btn-primary').on('click', function(){ $('#modal-confirm').modal('hide') }).end() 
+	});
+	$('#modal-confirm').on('hidden.bs.modal', function () {
+		$(this).find('.modal-message').text('').end()
+				  .find('.modal-footer .btn-default, .close').off('click').end()
+				  .find('.modal-footer .btn-primary').off('click').end() 
+	});
+	
+});
+</script>
+</body>
+</html>
+</html>

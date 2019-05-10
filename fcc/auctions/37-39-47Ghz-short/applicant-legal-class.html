@@ -1,0 +1,142 @@
+<!DOCTYPE HTML>
+<!--[if IE 8]><html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!-->
+<html lang="en" class="no-js">
+<!--<![endif]-->
+<head>
+<!--#include file="../inc/meta.shtm" -->
+<title>Applicant Information: Legal Classification &#171; FCC Auctions &#171; FCC</title>
+<!--#include file="../inc/links-head.shtm" -->
+</head>
+<body>
+<form novalidate action="/" name="frm-userProfile" method="POST" class="form-horizontal" id="frm-userProfile">
+  <!-- Main header --> 
+  <!--#include file="../inc/header.shtm" -->
+  <main class="container">
+    <div class="msg-box msg-warning" role="alert"> <span id="msgStatAlert" class="msg-warning-text" role="alert"><span class="glyphicon glyphicon-warning-sign"></span> Your changes have been saved but NOT SUBMITTED. In order for your changes to take effect, you must <strong>Certify &amp; Submit</strong> your application.</span></div>
+    
+    <!--#include file="../inc/pg-head-meta-shortForm.shtm" -->
+    <div class="row">
+      <div class="col-sm-8 col-md-9 page-content"><a tabindex="-1" id="skiptarget1" class="sr-only"></a>
+        <p>The Applicant Information section identifies the applicant, its contact person, its initial commitment representative(s), and the FCC Registration Numbers (FRNs) of all licensees in addition to the applicant with existing 39 GHz licenses that are being consolidated in this application. 
+        
+        All correspondence concerning this application will be sent to the contact person listed in this application. 
+        
+        The asterisk (<span class="required-char">*</span>) indicates a required field.</p>
+        <section class="section section-divider" role="region">
+          <div class="row row-sectionTitle">
+            <h3 class="col-sm-10">Applicant Legal Classification</h3>
+            <div class="col-sm-2"> <a href="#" tabindex="0" class="pull-right inline-help-link collapsed" data-target="#help-01" data-toggle="collapsible">
+              <span class="glyphicon glyphicon-triangle-left"></span>Help</a> </div>
+          </div>
+          <div id="help-01" class="alert alert-info" role="alert" style="display:none;">
+            <div class="alert-hd"><span class="glyphicon glyphicon-info-sign"></span> Applicant Legal Classification Help </div>
+            <div id="inlineHelp-AppLegalClass" class="help-wrapper"> <a id="helpTop-1"></a> 
+          
+            <!--#include file="help/short/applicant-information/applicant-legal-classification.xhtml" -->
+            </div>
+          </div>
+          <div class="row form-group">
+            <fieldset id="fieldset-appLegalClass" class="col-sm-12 fieldset-indent">
+              <legend class="legend-indent"><span class="required-char">*</span> To determine the applicant information required by the FCC please provide your Legal Classification. </legend>
+              <div id="msgWarnBox-01" class="msg-box msg-warning"> <span id="msgWarn-01" class="msg-warning-text" role="alert"> <span class="glyphicon glyphicon-warning-sign"></span> <strong>Note:</strong> After selecting and saving your legal classification, you will be required to enter additional applicant information on subsequent pages of this form. If you later change your legal classification selection and save your changes or navigate away from this page, some of your previously-entered applicant information will be deleted as a result of the change and must be reentered.</span></div>
+              <input id="rdo-consor" type="radio" name="legalClass" value="N" />
+              <label for="rdo-consor">Consortium</label>
+              <br />
+              <input id="rdo-corp" type="radio" name="legalClass" value="C"  />
+              <label for="rdo-corp">Corporation</label>
+              <br />
+              <input id="rdo-generalPartner" type="radio" name="legalClass" value="G" />
+              <label for="rdo-generalPartner">General Partnership</label>
+              <br />
+              <input id="rdo-govEnt" type="radio" name="legalClass" value="B" />
+              <label for="rdo-govEnt">Government Entity</label>
+              <br />
+              <input id="rdo-indiv" type="radio" name="legalClass" value="I" />
+              <label for="rdo-indiv">Individual</label>
+              <br />
+              <input id="rdo-llc" type="radio" name="legalClass" value="L" />
+              <label for="rdo-llc">Limited Liability Company</label>
+              <br />
+              <input id="rdo-llp" type="radio" name="legalClass" value="M" />
+              <label for="rdo-llp">Limited Liability Partnership</label>
+              <br />
+              <input id="rdo-lp" type="radio" name="legalClass" value="P" />
+              <label for="rdo-lp">Limited Partnership</label>
+              <br />
+              <input id="rdo-trust" type="radio" name="legalClass" value="T" />
+              <label for="rdo-trust">Trust</label>
+              <br />
+              <input id="rdo-unincAssoc" type="radio" name="legalClass" value="U" />
+              <label for="rdo-unincAssoc">Unincorporated Association</label>
+              <br />
+              <input id="rdo-other" type="radio" name="legalClass" value="O" />
+              <label for="rdo-other">Other</label>
+              <br />
+              <div id="legalClass" class="form-group-radio" style="display:none; margin-left:8px;">
+                <label class="control-label" for="txt-legalClass"><span class="required-char">*</span> Description of Legal Classification:</label>
+                <input type="text" required aria-required="true" size="12" id="txt-legalClass" class="form-control form-control-inline" maxlength="30" />
+              </div>
+            </fieldset>
+          </div>
+        </section>
+        <!--#include file="/auctions/inc/frm-ft.shtm" --> 
+      </div>
+      <div class="sidebar sidebar-left col-sm-4 col-md-3"> 
+        <!--#include file="/auctions/inc/app-steps-373947Ghz-short.shtm" --> 
+      </div>
+    </div>
+  </main>
+</form>
+ 
+<!--#include file="/auctions/inc/footer.shtm" --> 
+<!--#include file="../inc/scripts-ft2.shtm" -->
+
+<script>
+// DEMO CODE ONLY DO NOT USE
+$(document).ready(function() {
+	$('#appStepAppInfo').click();
+	$('#ol-appInfo').find('li:eq(0)').addClass('active').prepend('<span><span class="icon-arrow-right"></span>');
+	//$.getScript('../inc/update-appSteps.js', function(){updateAppSteps(0);});
+	$('.has-kicker').text('Applicant Information');
+	
+	$('.frm-ft').find('.btn-default:first').click(function(e) {
+        e.preventDefault();
+    });	
+	
+	// Save Button
+	$('.frm-ft').find('.btn-default:eq(1)').click(function(e) {
+        e.preventDefault();
+    });	
+	$('.frm-ft').find('.btn-primary').click(function(e) {
+        e.preventDefault();
+		location.href = 'applicant-name.html';
+    });
+});
+// END DEMO CODE ONLY DO NOT USE
+	
+var radioBtnReveal = {
+			init: function() {
+				var $targetRadioBtns= $('#fieldset-appLegalClass').find('input[type="radio"]');
+				radioBtnReveal.revealField();
+				$targetRadioBtns.on('change', function(){ 
+					radioBtnReveal.revealField();
+				})	
+			},
+			revealField: function(){
+				var $otherRadioBtn= $('input[value="O"]'),
+				    $describField = $('#legalClass');
+				if( $otherRadioBtn.is(':checked') ){
+					$describField.slideDown().attr({'aria-expanded': true,'aria-hidden': false});
+				}else{
+					 
+					$describField.slideUp().attr({'aria-expanded': false,'aria-hidden': true}).find('input[type="text"]').val('');
+					}
+			}
+		}
+radioBtnReveal.init();	
+	
+	
+</script>
+</body>
+</html>

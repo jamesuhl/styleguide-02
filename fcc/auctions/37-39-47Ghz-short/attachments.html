@@ -1,0 +1,410 @@
+<!DOCTYPE html>
+<a href="Attachments"></a>
+<head>
+<!--<link type="text/css" rel="stylesheet" href="/IncentiveAuctionsForms/javax.faces.resource/theme.css.xhtml?ln=primefaces-bootstrap" />-->
+<title>Application Attachments - Attachments « FCC Auctions « FCC</title>
+
+<!--#include file="../inc/meta.shtm" -->
+<!--#include file="../inc/links-head.shtm" -->
+
+<style id="antiClickjack">
+body {
+	display: none !important;
+}
+</style>
+<script>
+			/**
+			 * defend against clickjacking is to include a "frame-breaker" script in each
+			 * page that should not be framed. The following methodology will prevent a
+			 * webpage from being framed even in legacy browsers, that do not support the
+			 * X-Frame-Options-Header.
+			 * 
+			 *See : https://www.owasp.org/index.php/Clickjacking_Defense_Cheat_Sheet#Best-for-now_Legacy_Browser_Frame_Breaking_Script
+			 */
+
+			if (self === top) {			
+				var antiClickjack = document.getElementById("antiClickjack");
+				antiClickjack.parentNode.removeChild(antiClickjack);
+			} else {
+				top.location = self.location;
+			}
+</script>
+</head>
+<body>
+<form id="j_idt9" name="j_idt9" method="post" action="/IncentiveAuctionsForms/app/attachments.xhtml">
+  <input type="hidden" name="j_idt9" value="j_idt9" />
+  <!--#include virtual="../inc/header.shtm" -->
+  <input type="hidden" name="javax.faces.ViewState" id="j_id1:javax.faces.ViewState:0" value="4058168492503204794:1950670538282756980" autocomplete="off" />
+</form>
+<main class="container">
+  <form id="j_idt28" name="j_idt28" method="post" action="/IncentiveAuctionsForms/app/attachments.xhtml">
+    <input type="hidden" name="j_idt28" value="j_idt28" />
+<!--#include file="../inc/pg-head-meta-shortForm.shtm" -->
+    <input type="hidden" name="javax.faces.ViewState" id="j_id1:javax.faces.ViewState:1" value="4058168492503204794:1950670538282756980" autocomplete="off" />
+  </form>
+  <div class="row">
+    <div class="col-sm-8 col-md-9 page-content"><a tabindex="-1" id="skiptarget1" class="sr-only"></a>
+      <section class="section section-divider">
+        
+        
+        
+        
+        <div class="row row-sectionTitle">
+            <h3 class="col-sm-10">Attachments</h3>
+            <div class="col-sm-2"> <a href="#" tabindex="0" class="pull-right inline-help-link collapsed" data-target="#help-01" data-toggle="collapsible">
+              <span class="glyphicon glyphicon-triangle-left"></span>Help</a> </div>
+          </div>
+           <div id="help-01" class="alert alert-info" role="alert" style="display:none;">
+            <div class="alert-hd"><span class="glyphicon glyphicon-info-sign"></span> Attachments Help </div>
+            <div id="inlineHelp-AppLegalClass" class="help-wrapper"> <a id="helpTop-1"></a> 
+            <!--#include file="help/short/attachments/attachments.xhtml" -->
+            </div>
+          </div>
+      
+        <p class="help-reqd"> <span class="required-char">*</span> indicates required field </p>
+        <form id="frm-auction" name="frm-auction" method="post" action="/IncentiveAuctionsForms/app/attachments.xhtml" class="form-horizontal" enctype="multipart/form-data" onsubmit="return validateUpload()" role="form">
+          <input type="hidden" name="frm-auction" value="frm-auction" />
+          <div class="row form-group">
+            <label for="sel-attachType" class="col-sm-2  control-label"><span class="required-char">*</span> Type:</label>
+            <div class="col-sm-10">
+              <div id="j_idt53">
+              
+                <select id="FC_ATT01" name="FC_ATT01" class="form-control" size="1" >
+                  <option value="">Select...</option>
+                  <option value="SI" selected="selected">Supporting Information</option>
+                 
+                </select>
+              </div>
+            </div>
+          </div>
+          <div class="row form-group">
+            <label for="fileAttachment" class="col-sm-2 control-label" style="margin-bottom: 0"><span class="required-char">*</span> Select file: </label>
+            <div class="col-sm-10"> <span class="btn btn-default fileinput-button"> <span>Browse...</span>
+              <input id="uploadPart" type="file" name="uploadPart"  onchange="setUploadFile(this)" 
+              aria-label="Browse - Max file size 10 megabytes, max filename characters 236." />
+              </span> <span id="help-maxVal" class="help-inline">10MB max. /
+              filename: 236 max. char.</span> <span class="msg-error-text" pt:role="alert"></span>
+              <div class="fileinput-filename" id="FC_ATT03"></div>
+            </div>
+          </div>
+          <div class="row form-group">
+            <label for="FC_ATT03" class="col-sm-2 control-label"> <span class="required-char">*</span> Description: </label>
+            <div class="col-sm-10">
+              <div id="j_idt60">
+                <textarea id="FC_ATT03" name="FC_ATT03" cols="50" rows="2" maxlength="60" ></textarea>
+              </div>
+              <span id="help-maxChar-1" class="help-inline">60 max. char.</span> </div>
+          </div>
+          <div class="row form-group">
+            <div class="col-sm-10 col-sm-offset-2 ">
+              <input id="btn-upload" type="submit" name="j_idt62" value="Upload File"  class="btn btn-primary" />
+              <input type="submit" name="j_idt63" value="Cancel"  class="btn btn-default" />
+            </div>
+          </div>
+          <input type="hidden" name="javax.faces.ViewState" id="j_id1:javax.faces.ViewState:2" value="4058168492503204794:1950670538282756980" autocomplete="off" />
+        </form>
+        <div class="table-wrapper">
+          <h3>Current Attachments</h3>
+          <form id="j_idt65" name="j_idt65" method="post" action="/IncentiveAuctionsForms/app/attachments.xhtml">
+            <input type="hidden" name="j_idt65" value="j_idt65" />
+            <table id="j_idt65:datatableId" class="table table-striped table-hover" >
+              <thead>
+                <tr>
+                  <th scope="col">File Name</th>
+                  <th scope="col">Type</th>
+                  <th scope="col">Description</th>
+                  <th scope="col">Date Uploaded</th>
+                  <th scope="col">Upload Status</th>
+                  <th scope="col">Actions</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>myFilename.doc</td>
+                  <td>Supporting Information</td>
+                  <td>Lorem ipsum dolor sit amet</td>
+                  <td> 11/30/2019 09:22:42 AM EST </td>
+                  <td><span class="icon-check"></span> Converted Successfully </td>
+                  <td><input id="j_idt65:datatableId:0:removeButtonId" type="button" name="j_idt65:datatableId:0:removeButtonId" value="Remove"  class="btn btn-default btn-xs" data-toggle="my_confirm" data-message="Are you sure you want to remove kdhgkhsdflkghlkdhlkgjhdfklhgksljdfhklgjhsdflkjfgkljshdfkghkljdfhklgjhdfskljghkljsdfhklgjhdsklfjhgkljdsfhkljgh?"  /></td>
+                </tr>
+                <tr>
+                  <td>otherFilename.doc</td>
+                  <td>Supporting Information</td>
+                  <td>Lorem ipsum dolor sit amet</td>
+                  <td> 11/30/2019 09:27:03 AM EST </td>
+                  <td><span class="icon-check"></span> Converted Successfully </td>
+                  <td><input id="j_idt65:datatableId:0:removeButtonId" type="submit" name="j_idt65:datatableId:0:removeButtonId" value="Remove"  class="btn btn-default btn-xs" data-toggle="my_confirm" data-message="Are you sure you want to remove ?" /></td>
+                </tr>
+              </tbody>
+            </table>
+            <input type="hidden" name="javax.faces.ViewState" id="j_id1:javax.faces.ViewState:3" value="4058168492503204794:1950670538282756980" autocomplete="off" />
+          </form>
+        </div>
+      </section>
+      <!--<script src="/IncentiveAuctionsForms/app/js/attachments.js"></script>-->
+      <form id="j_idt94" name="j_idt94" method="post" action="/IncentiveAuctionsForms/app/attachments.xhtml">
+        <input type="hidden" name="j_idt94" value="j_idt94" />
+        <div class="frm-ft row">
+          <div class="col-sm-6">
+            <input type="submit" name="j_idt94:j_idt96" value="« Back" disabled="disabled" class="btn btn-default" />
+          </div>
+          <div class="pull-right">
+            <input type="submit" name="j_idt94:j_idt98" value="Continue »" class="btn btn-primary" />
+          </div>
+        </div>
+        <input type="hidden" name="javax.faces.ViewState" id="j_id1:javax.faces.ViewState:4" value="4058168492503204794:1950670538282756980" autocomplete="off" />
+      </form>
+    </div>
+    <form id="j_idt101" name="j_idt101" method="post" action="/IncentiveAuctionsForms/app/attachments.xhtml">
+      <input type="hidden" name="j_idt101" value="j_idt101" />
+      <div class="sidebar sidebar-left col-sm-4 col-md-3"> <a tabindex="-1" class="visuallyhidden" id="skiptarget2"> </a>
+        
+    <!--#include file="/auctions/inc/app-steps-373947Ghz-short.shtm" --> 
+      </div>
+      <input type="hidden" name="javax.faces.ViewState" id="j_id1:javax.faces.ViewState:5" value="4058168492503204794:1950670538282756980" autocomplete="off" />
+    </form>
+  </div>
+</main>
+<div class="modal fade" id="modal-confirm" tabindex="-1" role="dialog" aria-labelledby="modal-confirmLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"> <span aria-hidden="true">×</span> </button>
+        <h4 id="modal-confirmLabel" class="modal-title">Confirmation
+          Required</h4>
+      </div>
+      <div class="modal-body">
+        <p class="modal-message"></p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+        <button type="button" class="btn btn-primary">OK</button>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="modal fade" id="modal-alert" tabindex="-1" role="dialog" aria-labelledby="modal-deleteLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"> <span aria-hidden="true">×</span> </button>
+        <h4 class="modal-title" id="modal-deleteLabel">Alert</h4>
+      </div>
+      <div class="modal-body" >
+        <p class="modal-message">Message Here</p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" data-dismiss="modal" class="btn btn-primary">OK</button>
+      </div>
+    </div>
+  </div>
+</div>
+<!--#include file="../inc/footer.shtm" --> 
+<!--#include file="../inc/scripts-ft2.shtm" --> 
+<!--<script src="/IncentiveAuctionsForms/app/js/timeout_script.js"></script> -->
+          
+<script>
+	
+	$('.has-kicker').text('Application Attachments');
+
+  $('.table').on('click', '[data-toggle="my_confirm"]', function(e){
+    e.preventDefault();
+    $(this).my_confirm($(this).data('message'));
+    return false;
+  });
+
+ var $confirm_modal = $('#modal-confirm');
+ 
+  $confirm_modal.on('hidden.bs.modal', function(){
+    resetModal($(this));
+  });
+
+  $.fn.my_confirm = function(message){
+	  console.log( 'this is a '+$(this).val());
+    var $this_input = $(this),
+        $input_clone = $this_input.clone(),
+        $input_form = $this_input.closest('form'),
+        $modal_button = $confirm_modal.find('.btn-primary');
+	    console.log('$confirm_modal length = '+$confirm_modal.length);
+
+    resetModal($confirm_modal);
+    $input_clone
+      .removeAttr('data-toggle data-message')
+      .text($modal_button.text())
+      .attr('class',$modal_button.attr('class') + ' btn-clone')
+      .insertAfter($modal_button);
+    $modal_button.hide();
+    $confirm_modal
+      .find('.modal-message')
+      .text(message)
+      .end()
+      .detach()
+      .appendTo($input_form)
+      .modal('show');
+    return this;
+  };
+
+  function resetModal($modal){
+    $modal
+      .find('.btn-clone')
+        .remove()
+      .end()
+      .find('.btn-primary')
+        .show()
+      .end()
+      .find('.modal-message')
+        .text('');
+  }
+  
+  function alertModal(modalMessage, modalTitle){
+      $('#modal-alert').find('.modal-title').text(modalTitle).end()
+      .find('.modal-message').html(modalMessage).end()
+      .modal('show');
+}
+	
+// NOTE: the following code is found in attachments.js in DEV files
+	
+var region = "XXXXXX";
+var totalplanned = 0;
+var totalavailable = 0;
+
+function refreshPage() {
+	window.location = location.href;
+}
+
+function validateUpload() {
+	var descText = $('#FC_ATT01').val();
+	if (descText == undefined || descText == null || descText == "") {
+		alertModal('Please select a Type', 'Alert');
+		isSubmitted = false;
+		return false;
+	}
+
+	var uplInp = $('#FC_ATT03').text();
+	uplInp = $.trim(uplInp);
+	// alert("uplInp="+uplInp+"<<");
+	if (uplInp == undefined || uplInp == null || uplInp == "") {
+
+		alertModal('Unable to upload file. Invalid or missing file to upload',
+				'Alert');
+		isSubmitted = false;
+		return false;
+	}
+
+	var descText = $('#FC_ATT02').val();
+	if (descText == undefined || descText == null || descText == "") {
+		alertModal('Attachment Description is required', 'Alert');
+		isSubmitted = false;
+		return false;
+	} else {
+		if (descText.length > 60) {
+			alertModal(
+					'Only 60 characters or less are allowed for the Description field',
+					'Alert');
+			isSubmitted = false;
+			return false;
+		}
+	}
+	
+	// DEVELOPER NOTE: This code is specific for winning-bids-attachments-longform.xhtml - need to fix
+	if( $('#FC_ATT04\\:0').length ){
+		var assocWinBidChkBx0 = $('#FC_ATT04\\:0');
+		var assocWinBidChkBx1 = $('#FC_ATT04\\:1');
+			if(!assocWinBidChkBx0.is(":checked") && !assocWinBidChkBx1.is(":checked") ){
+				alertModal('Attachment Association is a required selection', 'Alert');
+				return false;
+				}
+			if(assocWinBidChkBx1.is(":checked") ){
+				var stateTxt = $('#FC_ATT05').val();
+				if (stateTxt  == undefined || stateTxt  == null || stateTxt  == "") {
+					alertModal('State is required', 'Alert');
+					isSubmitted = false;
+					return false;
+				}
+			}
+	}
+	
+	return true;
+}
+
+function setUploadFile(inputField) {
+
+	// ---------------------
+	var file_path = inputField.value;
+	var split_path = file_path.split('\\');
+	$('#FC_ATT03').text(split_path[split_path.length - 1]);
+}
+
+/**
+ * 10/26/2015 Casper added button on click trigger to disable upload button after click to avoid resubmit twice
+ * 10/30/2015 Casper removed disabling of upload button as this feature will be handled with globally applied code
+ */
+
+var isSubmitted = false;
+$(document).ready(function() {
+	isSubmitted = false;
+	/*$('#btn-upload').click(function(e) {
+		if (isSubmitted) {
+			e.preventDefault();
+			$(this).prop('disabled', true);
+			return false;
+		} else {
+			isSubmitted = true;
+			return true;
+		}
+	});*/
+
+	
+	$('#uploadPart').change(function() {
+		var file_path = this.value, split_path = file_path.split('\\');
+		$('#FC_ATT03').text(split_path[split_path.length - 1]);
+	}).on('focus', function() {
+		$(this).parent('.btn').addClass('focus');
+	}).on('focusout', function() {
+		$(this).parent('.btn').removeClass('focus');
+	});
+
+});
+	
+	
+
+</script>
+<div class="modal fade" id="modal-timeout" tabindex="-1" role="dialog" aria-labelledby="modal-quit-label" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal"> <span aria-hidden="true">×</span><span class="sr-only">Close</span> </button>
+        <h4 class="modal-title" id="modal-quit-label">FCC Auctions
+          Application</h4>
+      </div>
+      <div align="center"> <strong>WARNING:</strong> Your session will timeout in <b class="timeleft"></b>
+        <p>Select one of the options below.</p>
+      </div>
+      <div class="modal-footer">
+        <form id="j_idt131" name="j_idt131" method="post" action="/IncentiveAuctionsForms/app/attachments.xhtml" enctype="application/x-www-form-urlencoded">
+          <input type="hidden" name="j_idt131" value="j_idt131" />
+          <input type="submit" name="j_idt131:j_idt132" value="Log out" class="btn answer-N" />
+          <input id="j_idt131:j_idt133" type="submit" name="j_idt131:j_idt133" value="I Need More Time" class="btn btn-default" onclick="mojarra.ab(this,event,'click',0,0,{'onevent':sessionTimeoutTimer.modalTimeoutContine});return false" aria-hidden="true" />
+          <input type="hidden" name="javax.faces.ViewState" id="j_id1:javax.faces.ViewState:6" value="4058168492503204794:1950670538282756980" autocomplete="off" />
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+</body>
+<!--  
+<lm:error layout="block" for="#{vs.FC_MT002}" styleClass="form-group">
+                                          <b>* Select file to upload:</b>
+                                          <h:outputText value="  "/>
+                                                <span class="help-fileUpload help-block" style="margin-top: 5px;">Max File Size: 25MB </span>
+                                  <div>
+                                         <span class="btn fileinput-button">
+                                         <span>Browse...</span>
+                                         <h:inputFile id="#{vs.FC_MT002}" name="fileToUpload"
+                                                             value="#{attachmentBean.uploadFile}" pt:aria-label="Browse - Max File Size 25 megabytes" pt:aria-describedby="msgError-#{vs.FC_MT002}"/>
+                                         </span>
+                                         <div id="selectedFile" class="fileinput-filename"></div>
+                                           </div>
+                                                </lm:error>
+
+-->

@@ -1,0 +1,146 @@
+<!DOCTYPE HTML>
+<!--[if IE 8]><html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!-->
+<html lang="en" class="no-js">
+<!--<![endif]-->
+<head>
+<!--#include file="../inc/meta.shtm" -->
+<title>Summary &#171; FCC Auctions &#171; FCC</title>
+<!--#include file="../inc/links-head.shtm" -->
+</head>
+<style></style>
+<body>
+<!-- Main header --> 
+<!--#include file="../inc/header.shtm" -->
+<main class="container"> 
+  <!--#include file="../inc/pg-head-meta-shortForm.shtm" -->
+  <div class="row">
+    <div class="col-sm-8 col-md-9 page-content"><a tabindex="-1" id="skiptarget1" class="sr-only"></a>
+      <form novalidate action="/" name="frm-userProfile" method="POST" role="form" class="form-horizontal" id="frm-userProfile">
+        <div class="alert alert-info" role="alert">
+          <div class="alert-hd"><span class="glyphicon glyphicon-info-sign"></span>Please review your application before submitting.</div>
+          <p>You have provided information in each of the categories listed under the Application Sections.  If you need to address errors or update the information you have provided, use the links under the Application Section. </p>
+        </div>
+        <section class="section-divider" role="region">
+          <div class="row row-sectionTitle">
+            <h3 class="col-sm-10">Error Summary</h3>
+            <div class="col-sm-2"><a href="#" class="pull-right inline-help-link collapsed" data-target="#errorSum-01" data-toggle="collapsible"><span class="glyphicon glyphicon-triangle-left"></span>Help</a></div>
+          </div>
+          <div id="errorSum-01" class="alert alert-info" role="alert" style="display:none;">
+            <div class="alert-hd"><span class="glyphicon glyphicon-info-sign"></span> Error Summary Help</div>
+            <div class="help-wrapper">
+            	
+<!--#include file="help/short/summary/error-summary.xhtml" -->            	
+            </div>
+          </div>
+          <p>Choose a heading listed below to review and navigate to sections containing warnings or errors. All <em>errors</em> must be corrected before final submission.</p>
+          <div class="panel-view-options">
+            <div class="row">
+              <div class="col-sm-6">
+                <button  id="accShow" class="btn btn-default btn-xs">View All</button>
+              </div>
+              <div class="col-sm-6">
+                <button id="accHide" class="btn btn-default btn-xs pull-right">Hide All</button>
+              </div>
+            </div>
+          </div>
+          <div class="panel-group panel-summaries" role="tablist" aria-multiselectable="true">
+            <div class="panel panel-default">
+              <div class="panel-heading msg-error" role="tab" id="headingOne">
+                <h3 class="panel-title"><a class="collapsible collapsed" data-target="#collapse_APLICATION_INFO" data-toggle="collapsible" href="#collapse_APLICATION_INFO" aria-expanded="true" aria-controls="collapseOne">Applicant Information</a></h3>
+                <div class="pull-right"><strong class="msg-error-text text-right"><span class="glyphicon glyphicon-remove"></span> 1 error detected.</strong> </div>
+                <div class="clearfix"></div>
+              </div>
+              <div id="collapse_APLICATION_INFO" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingOne">
+                <div class="panel-body">
+                  <table class="table table-apps table-striped table-hover dataTable table-errorSummary" role="grid">
+                    <thead>
+                      <tr role="row">
+                        <th role="columnheader">Page Section</th>
+                        <th role="columnheader">Field</th>
+                        <th role="columnheader">Error Type</th>
+                        <th role="columnheader">Error Description</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td><a href="applicant-name.html">Applicant Name</a></td>
+                        <td>Applicant Address</td>
+                        <td><span class="glyphicon glyphicon-remove"></span> Error</td>
+                        <td>City is required.</td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
+            <div class="panel panel-default">
+              <div class="panel-heading msg-success"  id="heading5">
+                <h3 class="panel-title">Summary</h3>
+                <div class="pull-right"><span class="icon-check"></span> No errors.</div>
+              </div>
+            </div>
+            <div class="panel panel-default">
+              <div class="panel-heading msg-success"  id="heading5">
+                <h3 class="panel-title">Certify &amp; Submit</h3>
+                <div class="pull-right"><span class="icon-check"></span> No errors.</div>
+              </div>
+            </div>
+          </div>
+          <!-- END accordion --> 
+        </section>
+        <!--# include file="/auctions/inc/frm-ft-ContinueOnly.shtm" -->
+      </form>
+    </div>
+    <div class="sidebar sidebar-left col-sm-4 col-md-3"> 
+      <!--#include file="/auctions/inc/app-steps-373947Ghz-short.shtm" --> 
+    </div>
+  </div>
+</main>
+<!--#include file="/auctions/inc/modals.shtm" --> 
+<!--#include file="/auctions/inc/footer.shtm" --> 
+<!--#include file="../inc/scripts-ft2.shtm" --> 
+<script>
+// DEMO CODE ONLY DO NOT USE
+$(document).ready(function() {
+	$.getScript('../inc/update-appSteps.js', function(){
+		updateAppSteps(1);	
+	});
+	$('.has-kicker').text('Summary');
+	$('.frm-ft').find('.btn-primary').val('Continue to Certify »');
+	
+	$('.frm-ft').find('.btn:first').click(function(e) {
+        e.preventDefault();
+		location.href = 'applicant-form-question.html';
+    });
+	$('.frm-ft').find('.btn-primary').click(function(e) {
+        e.preventDefault();
+		location.href = 'certify.html';
+    });			
+});
+// END DEMO CODE ONLY DO NOT USE
+$(document).ready(function() {
+	var table = $('.dataTable').dataTable({
+      'aaSorting': [ [0, 'asc'] ],
+	  stateSave: true,
+	  'bPaginate':false,
+	  dom: 't'
+    });
+   $('#accShow').on('click', function(e) {
+  	e.preventDefault(e);
+	  $('.collapse').each(function (index) {
+		  $(this).css("display","block");  
+	  }); 
+	  $('.collapsible').removeClass('collapsed');
+  });
+   $('#accHide').on('click', function(e) {
+  	e.preventDefault(e);
+	  $('.collapse').each(function (index) {
+		  $(this).css("display","none");
+	  }); 
+	   $('.collapsible').addClass('collapsed');
+  });  
+});
+</script>
+</body>
+</html>

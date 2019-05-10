@@ -1,0 +1,25 @@
+<div class="pg-head-meta">
+    <div class="row">
+      <div class="col-sm-6">
+        <h2><strong class="kicker kicker-primary">Auction 103</strong> 
+        <span class="kicker">Incumbent 39 GHz Licensee Short-Form Application</span> 
+        <span class="has-kicker">[Page Title]</span></h2>
+      </div>
+      <div class="col-sm-6">
+        <ul class="unstyled session-meta pull-right">
+          <li>Applicant: <strong class="break-word">Doe, John</strong></li>
+          <li>Initial Filing Closes: <strong>11/29/2019 06:00 PM ET</strong></li>
+          <li>Status: <strong class="msg-not-submitted">Not Submitted</strong></li>
+        </ul>
+        <nav class="nav-utility">
+           <ul class="list-unstyled list-inline">
+           <li><input id="navLink-attachments" class="btn-link btn-link-attachments" type="button" value="Attachments" onclick="location.href='attachments.html';" /></li>
+            <li><input id="navLink-print" class="btn-link btn-link-print"  type="button" value="Print" onclick="location.href='draft-copy.html';" /></li>
+            <li><input id="navLink-help" class="btn-link btn-link-help" type="button" value="Help" onclick="location.href='help.html';" /></li>
+            <li><input id="navLink-quit" class="btn-link btn-link-quit" type="button" value="Quit" data-toggle="modal" data-target="#modal-quit" />
+            </li>
+          </ul>
+        </nav>
+      </div>
+    </div>
+  </div>

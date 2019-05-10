@@ -1,0 +1,82 @@
+<!DOCTYPE HTML>
+<!--[if IE 8]><html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!-->
+<html lang="en" class="no-js">
+<!--<![endif]-->
+<head>
+<!--#include file="../inc/meta.shtm" -->
+<title>Confirmation &#171; FCC Auctions &#171; FCC</title>
+<!--#include virtual="../inc/links-head.shtm" -->
+</head>
+<body>
+<!-- Main header --> 
+<!--#include file="../inc/header.shtm" -->
+<main class="container"> 
+  <!--#include file="../inc/pg-head-meta-shortForm.shtm" -->
+  <div class="row">
+    <div class="col-sm-8 col-md-9 page-content"><a tabindex="-1" id="skiptarget1" class="sr-only"></a>
+      <form novalidate action="/" name="frm-userProfile" method="POST" role="form" class="form-horizontal">
+        <section class="section section-divider">
+          <div class="row row-sectionTitle">
+            <h3 class="col-sm-10">Confirmation of Submission</h3>
+            <div class="col-sm-2"><a href="#" class="pull-right inline-help-link collapsed" data-target="#confirm-01" data-toggle="collapsible"><span class="glyphicon glyphicon-triangle-left"></span>Help</a></div>
+          </div>
+          <div id="confirm-01" class="alert alert-info" role="alert" style="display:none;">
+            <div class="alert-hd"><span class="glyphicon glyphicon-info-sign"></span> Confirmation of Submission Help</div>
+            <div class="help-wrapper">
+		<!--#include file="help/short/certify/auction-application-submit-confirmation.xhtml" -->	  
+         </div>
+          </div>
+          <div class="alert alert-success" role="alert" > <span class="msg-success-text">Your Application has been received on <span class="time">11/5/2019 11:53 PM EDT</span>.</span>
+            <ul>
+              <li>Your file number is <strong>0002958632</strong>.</li>
+              <li>Please <a href="#void">print</a> your application for your records. </li>
+            </ul>
+          </div>
+        </section>
+        <div class="frm-ft row">
+          <div class="col-sm-12">
+            <button type="submit" class="btn btn-default">&laquo; Back</button>
+            <input type="button" id="aucAppMan" class="btn btn-default pull-right" value="Auction Application Manager" />
+          </div>
+        </div>
+      </form>
+    </div>
+    <div class="sidebar sidebar-left col-sm-4 col-md-3"> 
+      <!--#include file="/auctions/inc/app-steps-373947Ghz-short.shtm" --> 
+    </div>
+  </div>
+</main>
+
+<!--#include file="/auctions/inc/footer.shtm" --> 
+<!--#include  file="../inc/scripts-ft2.shtm" --> 
+<script>
+// DEMO CODE ONLY DO NOT USE
+$(document).ready(function() {
+	$.getScript('../inc/update-appSteps.js', function(){
+		updateAppSteps(2);	
+	});
+	$('.has-kicker').text('Certify & Submit');
+	
+	$('.msg-not-submitted').text('Submitted').addClass('msg-submitted').removeClass('msg-not-submitted');
+	
+	$('.frm-ft').find('.btn:first').click(function(e) {
+        e.preventDefault();
+		location.href = 'certify.html';
+    });
+	$('.frm-ft').find('.btn:last').click(function(e) {
+        e.preventDefault();	
+    });
+	$('#aucAppMan').click(function(e) {
+		e.preventDefault();
+    });
+	
+	var $submissnTime = $('.time');
+	var timeOnly = $submissnTime.text().match( /\d?\d:\d\d/ );	
+	if(timeOnly){$submissnTime.text(  $submissnTime.text().replace(timeOnly, 'at '+timeOnly )
+	); }
+});
+// END DEMO CODE ONLY DO NOT USE
+</script>
+</body>
+</html>

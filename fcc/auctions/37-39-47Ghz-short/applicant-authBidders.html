@@ -1,0 +1,214 @@
+<!DOCTYPE HTML>
+<!--[if IE 8]> <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!-->
+<html lang="en" class="no-js">
+<!--<![endif]-->
+<head>
+<!--#include file="../inc/meta.shtm" -->
+<title>Applicant Information: Initial Commitment Representative &#171; FCC Auctions &#171; FCC</title>
+<!--#include file="../inc/links-head.shtm" -->
+
+</head>
+<body>
+<!-- Main header --> 
+<!--#include file="../inc/header.shtm" -->
+<main class="container"> 
+  <!--#include file="../inc/pg-head-meta-shortForm.shtm" -->
+  <div class="row" >
+    <div class="col-sm-8 col-md-9 page-content"><a tabindex="-1" id="skiptarget1" class="sr-only"></a>
+      <p class="help-reqd"><span class="required-char">*</span> indicates required field</p>
+      <form novalidate action="/" name="frm-userProfile" method="POST" role="form" class="form-horizontal" id="frm-userProfile">
+        <section class="section section-divider" role="region">
+          <div class="row row-sectionTitle">
+            <h3 class="col-sm-10">Initial Commitment Representatives</h3>
+            <div class="col-sm-2"> <a class="pull-right inline-help-link collapsed" data-toggle="collapsible" data-target="#initComRep"> <span class="glyphicon glyphicon-triangle-left"></span> Help </a> </div>
+          </div>
+          <div id="initComRep" class="alert alert-info" style="display: none;" role="alert">
+            <div class="alert-hd"> <span class="glyphicon glyphicon-info-sign"></span> Initial Commitment Representatives Help </div>
+            <div class="help-wrapper">
+			  <!--#include file="help/short/applicant-information/initial-commitment-representatives.xhtml" -->
+         
+         </div>
+          </div>
+          <p>Identify at least one <strong>but no more than three</strong> initial commitment representatives. Only individuals listed here will be authorized to submit an initial commitment on behalf of the applicant.</p>
+          <div class="row form-group">
+            <label class="control-label col-sm-3 col-md-2" for="fName"><span class="required-char">*</span> First Name:</label>
+            <div class="col-sm-9 col-md-10">
+              <input type="text" required aria-required="true"  size="34" id="fName" name="fName" class="form-control" maxlength="20" />
+            </div>
+          </div>
+          <div class="row form-group">
+            <label class="control-label col-sm-3 col-md-2 label-opt" for="mi">Middle Initial:</label>
+            <div class="col-sm-9 col-md-10">
+              <input type="text" size="2" id="mi" name="mi" class="form-control" maxlength="1" />
+            </div>
+          </div>
+          <div class="row form-group">
+            <label class="control-label col-sm-3 col-md-2" for="lName"><span class="required-char">*</span> Last Name:</label>
+            <div class="col-sm-9 col-md-10">
+              <input type="text" required aria-required="true" size="34" id="lName" name="lName" class="form-control" maxlength="20" />
+            </div>
+          </div>
+          <div class="row form-group">
+            <label class="control-label col-sm-3 col-md-2 label-opt" for="suffix">Suffix:</label>
+            <div class="col-sm-9 col-md-10">
+              <input type="text"  size="3" id="suffix" name="suffix" class="form-control" maxlength="3" />
+            </div>
+          </div>
+          <div class="row form-group">
+            <label class="control-label col-sm-3 col-md-2" for="phone"><span class="required-char">*</span> Phone:</label>
+            <div class="col-sm-9 col-md-10">
+              <input id="phone" class="form-control" type="tel" data-toggle="inputmask-ext" name="phone" size="22" aria-required="true" required maxlength="22">
+            </div>
+          </div>
+          <div class="row form-group">
+            <label class="control-label col-sm-3 col-md-2" for="email"><span class="required-char">*</span> Email:</label>
+            <div class="col-sm-9 col-md-10">
+              <input id="email" class="form-control" type="email" name="email" size="50" value="" aria-required="true" required maxlength="50">
+            </div>
+          </div>
+          <div class="row form-group" data-id="row-btn-add">
+            <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2">
+              <button id="btn-addBidder" type="button" class="btn btn-default btn-primary" data-toggle="tooltip" data-placement="right" title="The maximum of 3 authorized bidders has been reached. You must remove a bidder before adding another.">Add</button>
+              <button id="btn-cancelBidder" class="btn">Cancel</button>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-sm-12 col-lg-10 col-lg-offset-2">
+              <div class="table-wrapper">
+                <table data-id="table-bidders" class="table table-hover table-bidders">
+                  <thead>
+                    <tr>
+                      <th>Initial Commitment Representative</th>
+                      <th>Phone</th>
+                      <th>Email</th>
+                      <th class="text-right">Actions</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr class="">
+                      <td><span class="fName">Jane</span> <span class="mi">R.</span> <span class="lName">Smith</span> <span class="suffix"></span></td>
+                      <td>(301) 123-4567</td>
+                      <td>Lastname@emailaddress.com</td>
+                      <td><div class="pull-right">
+                          <button class="btn btn-default btn-xs">Edit</button>
+                          <button class="btn btn-default btn-xs">Remove</button>
+                        </div></td>
+                    </tr>
+                    <tr>
+                      <td><span class="fName">John</span> <span class="mi"></span> <span class="lName">Doe</span> <span class="suffix"></span></td>
+                      <td>(401) 867-6543</td>
+                      <td>john.doe@myagency.com</td>
+                      <td><div class="pull-right">
+                          <button class="btn btn-default btn-xs">Edit</button>
+                          <button class="btn btn-default btn-xs">Remove</button>
+                        </div></td>
+                    </tr>
+                    <tr>
+                      <td><span class="fName">Robert</span> <span class="mi">M.</span> <span class="lName">Jackson</span>, <span class="suffix">Jr.</span></td>
+                      <td>(202) 555-1234</td>
+                      <td>r.jackson@abc.com</td>
+                      <td><div class="pull-right">
+                          <button class="btn btn-default btn-xs">Edit</button>
+                          <button class="btn btn-default btn-xs">Remove</button>
+                        </div></td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+        </section>
+        
+        <!--#include file="/auctions/inc/frm-ft.shtm" -->
+      </form>
+    </div>
+    <div class="sidebar sidebar-left col-sm-4 col-md-3"> 
+      <!--#include file="/auctions/inc/app-steps-373947Ghz-short.shtm" --> 
+    </div>
+  </div>
+</main>
+<!--#include file="/auctions/inc/modals.shtm" --> 
+<!--#include file="/auctions/inc/footer.shtm" --> 
+<!--#include file="../inc/scripts-ft2.shtm" --> 
+<script>
+// DEMO CODE ONLY DO NOT USE
+$(document).ready(function() {
+	$('#appStepAppInfo').click();
+	$('#ol-appInfo').find('li:eq(3)').addClass('active').prepend('<span><span class="icon-arrow-right"></span>');
+	//$.getScript('../inc/update-appSteps.js', function(){updateAppSteps(0);});
+	$('.has-kicker').text('Applicant Information');
+	
+	$('#btn-addBidder').click(function(e) {
+		e.preventDefault();
+		$(this).text('Add');
+		$('input[type="text"]').val('');
+		checkRowNum();
+		});
+	$('td').find('button:first').click(function(e) {
+        e.preventDefault();
+		var fName;
+		var $editBtn = $(this);
+		
+		$('#btn-addBidder').removeClass('disabled').addClass('btn-primary').tooltip('disable').text('Update');
+		$('#btn-cancelBidder').show();
+
+		fName = $editBtn.closest('tr').find('.fName').text();
+		mi = $editBtn.closest('tr').find('.mi').text();
+		lName = $editBtn.closest('tr').find('.lName').text();
+		suffix = $editBtn.closest('tr').find('.suffix').text();
+		
+		$('#fName').val(fName);
+		$('#mi').val(mi);
+		$('#lName').val(lName);
+		$('#suffix').val(suffix);
+    });
+	$('td').find('button:last').click(function(e) {
+        e.preventDefault();
+		var $thisTable = $(this).closest('table');
+		$(this).closest('tr').remove();
+		checkRowNum();
+		if($thisTable.find('tbody').children('tr').length === 0){ $thisTable.hide();}	
+    });
+	
+	function checkRowNum(){
+		var rowNum = $('[data-id="table-bidders"]').find('tbody tr').length
+		  if(rowNum >= 3){ 
+		  $('#btn-addBidder').removeClass('btn-primary').tooltip('enable').text('Add').addClass('disabled').css('pointer-events','auto');
+		  }else{
+		  $('#btn-addBidder').addClass('btn-primary').tooltip('disable').text('Add').removeClass('disabled');  
+		  }
+		};
+	checkRowNum();
+
+	$('#btn-cancelBidder').click(function(e) {
+        e.preventDefault();
+		$('#btn-addBidder').text('Add');
+		$('#btn-cancelBidder').hide();
+		$('input[type="text"]').val('');
+		checkRowNum();
+    });
+	
+	$('.frm-ft').find('.btn-default:first').click(function(e) {
+        e.preventDefault();
+		location.href = 'applicant-contact.html';
+    });
+	// Save Button
+	$('.frm-ft').find('.btn-default:eq(1)').click(function(e) {
+        e.preventDefault();
+    });
+	
+	$('.frm-ft').find('.btn-primary').click(function(e) {
+        e.preventDefault();
+		location.href = 'applicant-form-question.html';
+    });
+});
+// END DEMO CODE ONLY DO NOT USE
+</script> 
+<script>
+$(document).ready(function() {
+	$('[data-toggle="inputmask-ext"]').mask("(999) 999-9999? x9999999");
+});
+</script>
+</body>
+</html>

@@ -1,0 +1,137 @@
+<!DOCTYPE HTML>
+<!--[if IE 8]><html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!-->
+<html lang="en" class="no-js">
+<!--<![endif]-->
+<head>
+<!--#include virtual="../inc/meta.shtm" -->
+<title>Print Preview &#171; FCC Auctions &#171; FCC</title>
+<!--#include virtual="../inc/links-head.shtm" -->
+</head>
+<body>
+<!-- Main header --> 
+<!--#include file="../inc/header.shtm" -->
+<main class="container"> 
+ <!--#include file="../inc/pg-head-meta-shortForm.shtm" -->
+  <div class="row">
+    <div class="col-sm-8 col-md-9 page-content"><a tabindex="-1" id="skiptarget1" class="sr-only"></a>
+      <form novalidate action="/" name="frm-userProfile" method="POST" role="form" class="form-horizontal" id="frm-userProfile">
+        <section class="section section-divider" role="region"> 
+          <!-- <h3>Print Application</h3>--> 
+          <a class="pull-right inline-help-link collapsed" data-target="#help-01" data-toggle="collapsible"><span class="glyphicon glyphicon-triangle-left"></span>Help</a>
+          <p style="width: 83.3333%; ">Print the data you have added to the application by selecting from the list of sections below. Click "Continue" to open a printable page.</p>
+          <div id="help-01" class="alert alert-info" role="alert" style="display:none;">
+            <div class="alert-hd"><span class="glyphicon glyphicon-info-sign"></span> Print Help </div>
+            <div class="help-wrapper"> <a id="helpTop-1"></a> 
+              [ help content here] 
+            </div>
+          </div>
+          <fieldset class="fieldset-indent">
+            <legend>Select application section to enable the Continue button</legend>
+           <!-- <input id="selectall" type="checkbox"  />
+            <label class="lbl-plain" for="selectall">Select All Sections</label>
+            <br />-->
+            <input id="item-1" type="checkbox" checked="checked"  />
+            <label class="lbl-plain" for="item-1">Application Information</label>
+            
+          </fieldset>
+        </section>
+ <section class="section section-divider" role="region">
+       
+          
+           <div class="row row-sectionTitle">
+            <h3 class="col-sm-10">Print Attachments</h3>
+            <div class="col-sm-2"> <a href="#" tabindex="0" class="pull-right inline-help-link collapsed" data-target="#help-02" data-toggle="collapsible">
+              <span class="glyphicon glyphicon-triangle-left"></span>Help</a> </div>
+          </div>
+          <div id="help-02" class="alert alert-info" role="alert" style="display:none;">
+            <div class="alert-hd"><span class="glyphicon glyphicon-info-sign"></span> Print Attachments Help </div>
+            <div id="inlineHelp-AppLegalClass" class="help-wrapper"> <a id="helpTop-1"></a> 
+            [Help content goes here.]
+            </div>
+          </div>
+          
+          
+	 <p>No Attachments uploaded.</p>
+          
+         <!-- <p>Click on a link below to open a PDF to print.</p>
+          <div class="msg-box msg-warning"> <span id="msgWarn-01" class="msg-warning-text" role="alert"> <span class="glyphicon glyphicon-warning-sign"></span> <strong>Note:</strong> You cannot print station-specific attachments from this page.  Those attachments may only be printed from the Station Attachment section.</span> </div>
+          <ul>
+            <li>Indirect Ownership - Indirect Ownership via ULS (Not Yet Converted)</li>
+            <li><a href="../uploads/test.pdf" target="_blank">Indirect Ownership - Indirect Ownership via ISAS</a></li>
+          </ul>-->
+        </section>
+        <div class="frm-ft row">
+          <div class="col-sm-6">
+            <input type="submit" class="btn btn-default" value="&#171; Back" />
+          </div>
+          <div class="col-sm-6">
+            <div class="pull-right">
+              <input type="submit" class="btn btn-primary" disabled="disabled" value="Continue &#187;" />
+            </div>
+          </div>
+        </div>
+        <span id="chkbx-msg" class="help-block text-right">A checkbox must be selected.</span>
+      </form>
+    </div>
+    <div class="sidebar sidebar-left col-sm-4 col-md-3"> 
+      <!--#include file="/auctions/inc/app-steps-373947Ghz-short.shtm" --> 
+    </div>
+  </div>
+</main>
+<!--#include virtual="../inc/footer.shtm" --> 
+<!--#include virtual="../inc/scripts-ft2.shtm" --> 
+<script>
+// DEMO CODE ONLY DO NOT USE
+$(document).ready(function() {
+	
+	$('.has-kicker').text('Print Application');		
+	$('.frm-ft').find('.btn-default:first').click(function(e) {
+        e.preventDefault();
+		location.href = document.referrer;
+    });
+	$('.frm-ft').find('.btn-primary').click(function(e) {
+        e.preventDefault();
+		location.href = 'draft-copy.html';
+    });
+});
+// END DEMO CODE ONLY DO NOT USE
+
+$(document).ready(function() {
+
+var	selectAction = {
+	$selChkAll:$('#selectall'),
+	$theFieldset:$('fieldset').first(),
+	$theFieldsetBxs:$('fieldset').find('input[type="checkbox"]'),
+	$printBtn: $('.frm-ft .btn-primary'),
+	init: function(){
+			selectAction.$selChkAll.click(function(){
+				var chkd = this.checked;
+				selectAction.$theFieldsetBxs.prop('checked', chkd);
+			});
+			selectAction.$theFieldsetBxs.click(function(){
+				selectAction.chkUnchkBxs();
+			});
+			selectAction.chkUnchkBxs();
+		},
+	chkUnchkBxs: function(){
+		var checkboxes = selectAction.$theFieldsetBxs.not(selectAction.$selChkAll).length,
+			numChkd = selectAction.$theFieldset.find('input:checked').not(selectAction.$selChkAll).length;
+				if (checkboxes == numChkd) {
+					selectAction.$selChkAll.prop('checked', true);	
+				} else {
+					selectAction.$selChkAll.prop('checked', false);
+				}
+				if (numChkd > 0) {
+					selectAction.$printBtn.prop('disabled', false);	
+				} else {
+					selectAction.$printBtn.prop('disabled', true);
+				}
+		}	
+}
+selectAction.init();
+
+});
+</script>
+</body>
+</html>
